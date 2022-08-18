@@ -29,6 +29,7 @@ game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, di
     _self.money = 50
     _self.hudMoney:destroy()
     _self.hudMoney = nil
+
     _self.type = "zombie"
 end)
 

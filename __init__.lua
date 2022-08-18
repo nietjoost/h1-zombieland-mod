@@ -11,6 +11,20 @@ players = {}
 local config = {}
 config.started = false
 
+-- [[ Settings ]]--
+game:executecommand("set sv_cheats 1")
+game:executecommand("set jump_height 150")
+game:executecommand("set team_rebalance 1")
+game:executecommand("set pm_bouncing 1")
+
+-- [[ Disable Killstreaks ]]--
+game:setdvar("scr_killstreak_kills_uav", 1000)
+game:setdynamicdvar("scr_killstreak_kills_uav", 1000)
+game:setdvar("scr_killstreak_kills_airstrike", 1000)
+game:setdynamicdvar("scr_killstreak_kills_airstrike", 1000)
+game:setdvar("scr_killstreak_kills_heli", 1000)
+game:setdynamicdvar("scr_killstreak_kills_heli", 1000)
+
 -- FUNCTION
 function entity:player_spawned()
     -- Welcome message
@@ -33,8 +47,6 @@ function player_connected(player)
     player.money = 500
 
     player:onnotify("spawned_player", function()
-        player:player_spawned()
-
         if player.type == "zombie" then
             player:welcome_message("You are now a zombie!", vector:new(1, 0, 0))
 
@@ -49,6 +61,8 @@ function player_connected(player)
         elseif player.type == nil then
             player:welcome_message("Welcome to RooieRonnie's ZombieLand", vector:new(0, 1, 0))
         end
+
+        player:player_spawned()
     end)
 end
 
