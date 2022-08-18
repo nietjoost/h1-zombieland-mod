@@ -8,7 +8,8 @@ Currently supports these maps:
 
 # How
 
-- Install [h1-mod](https://github.com/fedddddd/h1-mod#download)
+- Install [h1-mod](https://github.com/h1-mod/h1-mod)
+- Download this mod and place in the Modern Warfare Remastered\h1\scripts folder
 
 ## Showcase
 
