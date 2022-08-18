@@ -1,6 +1,7 @@
 -- VARIABLES
 require("hud/hud_money")
 require("hud/hud_message")
+require("utils/spawn")
 
 local map = require("maps/" .. game:getdvar("mapname"))
 local utility = game:getfunctions("maps/mp/_utility")
@@ -34,7 +35,7 @@ function entity:player_spawned()
     -- Give full ammo
     local weapons = self:getweaponslistall()
     for i = 1, #weapons do
-        print(weapons[i])
+        --print(weapons[i])
         self:givemaxammo(weapons[i])
         self:setweaponammoclip(weapons[i], 1000)
     end

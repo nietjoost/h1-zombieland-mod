@@ -12,16 +12,12 @@ Currently supports these maps:
 
 ## Showcase
 
-| <img src="assets/github/menu.png?raw=true" /> |
-| :-------------------------------------------: |
-|                Pre-game Lobby                 |
+| <img src="assets/github/zombie_land_1.png?raw=true" /> |
+| :----------------------------------------------------: |
+|                        In-game                         |
 
-| <img src="assets/github/survival1.png?raw=true" /> |
-| :------------------------------------------------: |
-|                      In-game                       |
-
-| <img src="assets/github/survival2.png?raw=true" /> |
-| :------------------------------------------------: |
-|              In-game weapon/perk shop              |
+| <img src="assets/github/zombie_land_1.png?raw=true" /> |
+| :----------------------------------------------------: |
+|                        In-game                         |
 
 <br/>

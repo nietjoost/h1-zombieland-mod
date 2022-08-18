@@ -1,15 +1,27 @@
+game:precachesound("mp_challenge_complete")
+
 local map = {
     primary = "h1_ak74u_mp_a#silencer_f#kin_emblem80_camo340",
     secondary = "h1_deserteagle55_mp_a#none_f#base_emblem80",
     knife = "h1_meleefeb3_mp_a#none_f#base",
 }
 
-local posFlag = {
-    flag1pos = vector:new(6080.000000, 880.000000, 20.271774),
+local posFlag = { 
+    vector:new(6047.105957, 1799.957764, 9.609579),
+    vector:new(4455.023926, 1369.031738, 103.615898),
+    vector:new(6375.125000, 1236.076904, 49.125000),
+    vector:new(1528.849243, -535.244507, 258.125000),
+    vector:new(3432.508301, -74.840248, -25.954500),
+    vector:new(3728.712158, -987.368530, -12.692110),
 }
 
 local posTP = {
-    teleport1pos = vector:new(1,1,1),
+    vector:new(6408.397461, 27.427656, 49.125000),
+    vector:new(853.135803, -216.277695, 458.125000),
+    vector:new(6080.000000, 880.000000, 20.271774),
+    vector:new(2115.813721, 70.457253, -25.017788),
+    vector:new(3613.763916, -487.735199, -30.083664),
+    vector:new(4092.301025, 430.048920, -5.968887),
 }
 
 function building_map()
@@ -19,30 +31,36 @@ function building_map()
     end
 
     -- Build map
-    local loadfxshit = game:loadfx("vfx/unique/vfx_marker_dom_white")
-    game:playfx(loadfxshit , posFlag.flag1pos)
-
-    --level._id_2CDF[var_0._id_4450]_id_6304 = maps\mp\gametypes\_gameobjects::_id_4041()
-    --objective_add(level._id_2CDF[var_0._id_4450]._id_6304, "invisible", (0, 0, 0))
-    --objective_add(level._id_2CDF[var_0._id_4450]._id_6304, "waypoint_dogtags")
+    spawnFlag(posFlag[1])
+    spawnFlag(posFlag[2])
+    spawnFlagOutside(posFlag[3])
+    spawnFlagOutside(posFlag[4])
+    spawnFlag(posFlag[5])
+    spawnFlagOutside(posFlag[6])
 
     -- Done building message
     for index, player in ipairs(players) do
-        player:clientiprintln("^1Done building!")
+        player:clientiprintln("^1Done building the map!")
     end
 end
 
 function check_flags()
     for index, player in ipairs(players) do
         local maxDistance = 60
-        --for index, flag in ipairs(posFlag) do
-            --print(flag)
-            local distance = game:distance(player.origin, vector:new(6080.000000, 880.000000, 20.271774))
+
+        for flagIndex, flag in ipairs(posFlag) do
+            local distance = game:distance(player.origin, posFlag[flagIndex])
             if (distance <= maxDistance) then
-                player:setorigin(vector:new(6080.000000, 880.000000, 20.271774))
+                player:setorigin(posTP[flagIndex])
+                player:clientiprintln("^4You have been teleported!")
+                player:playlocalsound("mp_challenge_complete")        
             end
-        --end
-    end 
+        end
+    end
+
+    for index2, player2 in ipairs(players) do
+        print(player2.origin)
+    end
 end
 
 map.main = function()
