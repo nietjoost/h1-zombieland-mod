@@ -16,7 +16,7 @@ Currently supports these maps:
 | :----------------------------------------------------: |
 |                        In-game                         |
 
-| <img src="assets/github/zombie_land_1.png?raw=true" /> |
+| <img src="assets/github/zombie_land_2.png?raw=true" /> |
 | :----------------------------------------------------: |
 |                        In-game                         |
 
