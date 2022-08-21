@@ -21,4 +21,8 @@ Currently supports these maps:
 | :----------------------------------------------------: |
 |                        In-game                         |
 
+| <img src="assets/github/zombie_land_3.png?raw=true" /> |
+| :----------------------------------------------------: |
+|                      In-game shop                      |
+
 <br/>

@@ -4,12 +4,12 @@ require("shop/shop_player")
 require("shop/shop_weapons_config")
 
 -- Customize color, alpha, and title. (Color uses RGB values divided by 255 iirc)
-selected_color        = vector:new(0.0, 0.0, 0.0) 
+selected_color        = vector:new(0.0, 0.0, 0.0)
 not_selected_color    = vector:new(1.0, 1.0, 1.0) 
-background_color      = vector:new(0.0, 0.0, 0.0)
+background_color      = vector:new(0.0, 1.0, 1.0)
 background_alpha      = 0.3                    
-outline_box_color     = vector:new(0.0, 0.0, 0.0) 
-menu_text_color       = vector:new(255, 0, 17) 
+outline_box_color     = vector:new(0.0, 1.0, 1.0)
+menu_text_color       = vector:new(0.0, 0.0, 1.0)
 menu_title            = "ZombieLand Shop"
 
 main_menu_options = {"Weapon shop", "Perk shop"}
@@ -130,9 +130,14 @@ end
 
 
 function weaponMenu(player)
-    new_menu(player, { GetWeaponString(player, "SMG", buy_weapons.weapon1cost), GetWeaponString(player, "LMG", buy_weapons.weapon1cost)}, {
+    new_menu(player, { GetWeaponString(player, "SMG", buy_weapons.weapon1cost), GetWeaponString(player, "Assault", buy_weapons.weapon2cost),
+    GetWeaponString(player, "LMG", buy_weapons.weapon3cost), GetWeaponString(player, "Sniper", buy_weapons.weapon4cost),
+    GetWeaponString(player, "Shotgun", buy_weapons.weapon4cost)}, {
         function() giveWeapon(player, buy_weapons.weapon1, buy_weapons.weapon1cost) end,
-        function() giveWeapon(player, buy_weapons.weapon1, buy_weapons.weapon1cost) end,
+        function() giveWeapon(player, buy_weapons.weapon2, buy_weapons.weapon2cost) end,
+        function() giveWeapon(player, buy_weapons.weapon3, buy_weapons.weapon3cost) end,
+        function() giveWeapon(player, buy_weapons.weapon4, buy_weapons.weapon4cost) end,
+        function() giveWeapon(player, buy_weapons.weapon5, buy_weapons.weapon5cost) end,
     }, function() 
         player.menus = player.menus - 1
         main_menu(player)

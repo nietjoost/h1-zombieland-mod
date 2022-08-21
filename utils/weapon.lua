@@ -18,7 +18,6 @@ function entity:givePlayerClass()
 
     local weapons = self:getweaponslistall()
     for i = 1, #weapons do
-        --print(weapons[i])
         self:givemaxammo(weapons[i])
         self:setweaponammoclip(weapons[i], 1000)
     end

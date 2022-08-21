@@ -22,6 +22,11 @@ function player_connected(player)
 
         player:clientMsg("^4Welcome to ^1RooieRonnie's ^6Zombieland!")
         player:clientMsg("^5Creaded by ^2Joost de Niet!")
+
+        local weapons = player:getweaponslistall()
+        for i = 1, #weapons do
+            print(weapons[i])
+        end
     end)
 end
 
