@@ -11,6 +11,7 @@ function SpawnFlag(flagLocation)
     teleportFlag:setmodel("h1_flag_mp_domination_spetsnaz_red") 
     local teleportCircle = game:loadfx("vfx/unique/vfx_marker_ctf_red")
     game:playfx(teleportCircle, flagLocation)
+    game:precacheshader("waypoint_flag")
     if #helper_table > 0 then
         random_number = math.random(#helper_table)
     end
@@ -19,7 +20,7 @@ function SpawnFlag(flagLocation)
             new_random_number = helper_table[random_number]
             table.remove(helper_table, i)
             game:objective_add(new_random_number, "active", "invisible", vector:new(0, 0, 0))
-            game:objective_icon(new_random_number, "waypoint_flag_enemy")
+            game:objective_icon(new_random_number, "waypoint_flag")
             game:objective_state(new_random_number, "active")
             game:objective_position(new_random_number, flagLocation)
         end	

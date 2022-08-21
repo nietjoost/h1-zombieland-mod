@@ -6,6 +6,9 @@ function entity:giveZombieClass()
 end
 
 function entity:givePlayerClass()
+    if map == nill then
+        return
+    end
     self:clearperks()
     self:takeallweapons();
     self:giveweapon(map.primary)

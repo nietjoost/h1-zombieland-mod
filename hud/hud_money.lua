@@ -15,6 +15,12 @@ function entity:money_spawned()
     self.hudMoney:settext("$" .. self.money)
 end
 
+function entity:update_money_HUD()
+    self.hudMoney:destroy()
+    self.hudMoney = nil
+    self:money_spawned()
+end
+
 -- EVENT
 game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, dir, hitloc, timeoffset, deathanimduration) 
     if attacker.type == "zombie" then
@@ -22,9 +28,8 @@ game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, di
     else
         attacker.money = attacker.money + 500
     end
-    attacker.hudMoney:destroy()
-    attacker.hudMoney = nil
-    attacker:money_spawned()
+
+    attacker:update_money_HUD()
 
     _self.money = 50
     _self.hudMoney:destroy()

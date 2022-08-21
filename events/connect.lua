@@ -6,6 +6,7 @@ function player_connected(player)
     table.insert(players, player)
     
     player:scriptcall("maps/mp/gametypes/_menus", "_id_8027", "allies")
+    player:scriptcall("maps/mp/gametypes/_menus", "_id_8027", "allies")
 
     player.money = 500
 
