@@ -6,7 +6,6 @@ function player_connected(player)
     table.insert(players, player)
     
     player:scriptcall("maps/mp/gametypes/_menus", "_id_8027", "allies")
-    player:scriptcall("maps/mp/gametypes/_menus", "_id_8027", "allies")
 
     player.money = 500
 
@@ -18,6 +17,15 @@ function player_connected(player)
         elseif player.type == nil then
             player:welcome_message("Welcome to RooieRonnie's ZombieLand", vector:new(0, 1, 0))
             player:givePlayerClass()
+
+            game:ontimeout(function()
+
+                player:welcome_message("Survive as long as possible to win!", vector:new(1, 0, 0))
+
+                game:ontimeout(function()
+                    player:welcome_message("Press [{+actionslot 2}] to open the shop!", vector:new(0, 0, 1))
+                end, 9000)
+            end, 10000)
         end
 
         player:clientMsg("^4Welcome to ^1RooieRonnie's ^6Zombieland!")
