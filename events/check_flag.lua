@@ -1,4 +1,4 @@
-game:precachesound("mp_challenge_complete")
+game:precachesound("rocket_explode_concrete_layer")
 
 function check_flags(posFlag, posTP)
     for index, player in ipairs(players) do
@@ -9,7 +9,7 @@ function check_flags(posFlag, posTP)
             if (distance <= maxDistance) then
                 player:setorigin(posTP[flagIndex])
                 player:clientiprintln("^4You have been teleported!")
-                player:playlocalsound("mp_challenge_complete")        
+                player:playlocalsound("rocket_explode_concrete_layer")        
             end
         end
     end

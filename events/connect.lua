@@ -13,7 +13,7 @@ function player_connected(player)
         if player.type == "zombie" then
             player:welcome_message("You are now a zombie!", vector:new(1, 0, 0))
             player:giveZombieClass()
-
+            
         elseif player.type == nil then
             player:welcome_message("Welcome to RooieRonnie's ZombieLand", vector:new(0, 1, 0))
             player:givePlayerClass()
@@ -36,6 +36,8 @@ function player_connected(player)
             print(weapons[i])
         end
     end)
+
+    all_player_sound("at_5_semtex_incoming")
 end
 
 function player_disconnected(player)  
