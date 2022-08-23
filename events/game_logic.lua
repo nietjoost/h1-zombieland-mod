@@ -18,27 +18,28 @@ function chose_zombies()
 end
 
 -- [[ Message: zombies are in-coming ]]--
-function start_zombieland()
+function start_zombieland(start_zombieland_timer)
    game:ontimeout(function()
       all_player_notify_message("Zombies will be chosen in 20 seconds!", vector:new(1, 0, 0))
       all_player_sound("h1_ui_sub_menu_campain_appear")
 
       local count_down = 10
       while(count_down ~= 0)
-      do
-         local number = count_down
-         game:ontimeout(function()
-            all_player_notify_message_fast(number, vector:new(1, 0, 0))
-            all_player_sound("h1_ui_main_menu_appear")
-         end, 19000 - (1000*count_down))
-         count_down = count_down - 1
-      end
+         do
+            local number = count_down
+            game:ontimeout(function()
+               all_player_notify_message_fast(number, vector:new(1, 0, 0))
+               all_player_sound("h1_ui_main_menu_appear")
+            end, 19000 - (1000*count_down))
+            count_down = count_down - 1
+         end
       return
 
       game:ontimeout(function()
-         if #players < 2 then
-            all_player_notify_message("Not enough players!", vector:new(1, 0, 0))
-            start_zombieland()
+         if #players == 1 then
+            all_player_message("Not enough players!", vector:new(1, 0, 0))
+            all_player_notify_message("Waiting for more players....", vector:new(0, 1, 0))
+            config.enough_people = false
             return
          end
 
@@ -46,6 +47,7 @@ function start_zombieland()
          all_player_sound("nuke_explosion_boom")
 
          -- [[ New players joins zombies ]]--
+         config.enough_people = true
          config.started = true
 
          -- [[ Set first infected ]]--

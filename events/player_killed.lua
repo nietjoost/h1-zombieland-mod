@@ -28,4 +28,16 @@ game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, di
     _self.type = "zombie"
     _self.died = true
     _self:changeteam("axis")
+
+    table.insert(zombies, _self)
+    for sur_index, loop_sur in ipairs(survivors) do
+        if loop_sur == _self then
+            table.remove(survivors, sur_index)
+        end
+    end
+
+    if #survivors == 0 then
+        all_player_message("The zombies have won!", vector:new(1, 0, 0))
+        print("Zombies has won!")
+    end
 end)

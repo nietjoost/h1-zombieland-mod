@@ -10,6 +10,7 @@ survivors = {}
 zombies = {}
 config = {}
 config.started = false
+config.enough_people = true
 
 -- [[ Require ]] --
 require("shop/shop_menu")
