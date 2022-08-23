@@ -1,20 +1,22 @@
-function entity:player_spawned()
-
-end
-
 function player_connected(player)
     table.insert(players, player)
     
-    player:scriptcall("maps/mp/gametypes/_menus", "_id_8027", "allies")
+    if config.started then
+        player:scriptcall("maps/mp/gametypes/_menus", "_id_8027", "axis")
+    else
+        player:scriptcall("maps/mp/gametypes/_menus", "_id_8027", "allies")
+    end
 
     player.money = 500
 
     player:onnotify("spawned_player", function()
         if player.type == "zombie" then
+            table.insert(zombies, player)
             player:welcome_message("You are now a zombie!", vector:new(1, 0, 0))
             player:giveZombieClass()
             
         elseif player.type == nil then
+            table.insert(survivors, player)
             player:welcome_message("Welcome to RooieRonnie's ZombieLand", vector:new(0, 1, 0))
             player:givePlayerClass()
 

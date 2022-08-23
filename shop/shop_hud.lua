@@ -45,7 +45,6 @@ function drawMaterial(player, x, y)
     elem.aligny = "middle"
     elem.horzalign = "center"
     elem.vertalign = "middle"
-    --elem.color = vector:new(1.0, 1.0, 1.0)
     elem.alpha = 1
     elem:setshader("white", 25, 25)
 

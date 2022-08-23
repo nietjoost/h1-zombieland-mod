@@ -4,8 +4,10 @@ if game:getdvar("gamemode") ~= "mp" then
     return
 end
 
--- [[ VARIABLES ]] --
+-- [[ GLOBAL VARIABLES ]] --
 players = {}
+survivors = {}
+zombies = {}
 config = {}
 config.started = false
 
@@ -18,10 +20,12 @@ require("utils/mapedit")
 require("utils/message_ui")
 require("utils/weapon")
 require("utils/sound")
+require("utils/player_functions")
 require("events/check_flag")
 require("events/connect")
 require("events/game_logic")
 require("events/broadcaster")
+require("events/player_killed")
 build = require("maps/mp_main")
 build.main()
 

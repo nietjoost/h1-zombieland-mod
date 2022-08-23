@@ -1,5 +1,5 @@
+-- [[ First infected function ]]--
 function chose_zombies()
-
    if #players > 5 then
       zombie1 = nil
       zombie2 = nil
@@ -7,80 +7,51 @@ function chose_zombies()
       do
          zombie1 = players[math.random(1, #players)]
          zombie2 = players[math.random(1, #players)]
+         zombie1:changeteam("axis")
+         zombie2:changeteam("axis")
       end
-
-      print(zombie1.name)
-      print(zombie2.name)
-
       return
    end
 
    zombie1 = players[math.random(1, #players)]
+   zombie1:changeteam("axis")
 end
 
-
 -- [[ Message: zombies are in-coming ]]--
-game:ontimeout(function()
-   all_player_notify_message("Zombies will be chosen in 20 seconds!", vector:new(1, 0, 0))
-   all_player_sound("h1_ui_sub_menu_campain_appear")
-
+function start_zombieland()
    game:ontimeout(function()
-      all_player_notify_message_fast("10", vector:new(1, 0, 0))
-      --all_player_sound("mp_hud_tk_lockon")
-      --all_player_sound("h1_ui_menu_warning_box_appear")
-      all_player_sound("h1_ui_main_menu_appear")
-   end, 10000)
+      all_player_notify_message("Zombies will be chosen in 20 seconds!", vector:new(1, 0, 0))
+      all_player_sound("h1_ui_sub_menu_campain_appear")
 
-   game:ontimeout(function()
-      all_player_notify_message_fast("9", vector:new(1, 0, 0))
-      all_player_sound("h1_ui_main_menu_appear")
-   end, 11000)
-   
-   game:ontimeout(function()
-      all_player_notify_message_fast("8", vector:new(1, 0, 0))
-      all_player_sound("h1_ui_main_menu_appear")
-   end, 12000)
+      local count_down = 10
+      while(count_down ~= 0)
+      do
+         local number = count_down
+         game:ontimeout(function()
+            all_player_notify_message_fast(number, vector:new(1, 0, 0))
+            all_player_sound("h1_ui_main_menu_appear")
+         end, 19000 - (1000*count_down))
+         count_down = count_down - 1
+      end
+      return
 
-   game:ontimeout(function()
-      all_player_notify_message_fast("7", vector:new(1, 0, 0))
-      all_player_sound("h1_ui_main_menu_appear")
-   end, 13000)
+      game:ontimeout(function()
+         if #players < 2 then
+            all_player_notify_message("Not enough players!", vector:new(1, 0, 0))
+            start_zombieland()
+            return
+         end
 
-   game:ontimeout(function()
-      all_player_notify_message_fast("6", vector:new(1, 0, 0))
-      all_player_sound("h1_ui_main_menu_appear")
-   end, 14000)
+         all_player_notify_message("Zombies are coming!", vector:new(1, 0, 0))
+         all_player_sound("nuke_explosion_boom")
 
-   game:ontimeout(function()
-      all_player_notify_message_fast("5", vector:new(1, 0, 0))
+         -- [[ New players joins zombies ]]--
+         config.started = true
 
-      all_player_sound("h1_ui_main_menu_appear")
-   end, 15000)
+         -- [[ Set first infected ]]--
+         chose_zombies()
+      end, 19000)
+   end, 30000)
+end
 
-   game:ontimeout(function()
-      all_player_notify_message_fast("4", vector:new(1, 0, 0))
-      all_player_sound("h1_ui_main_menu_appear")
-   end, 16000)
-
-   game:ontimeout(function()
-      all_player_notify_message_fast("3", vector:new(1, 0, 0))
-      all_player_sound("h1_ui_main_menu_appear")
-   end, 17000)
-
-   game:ontimeout(function()
-      all_player_notify_message_fast("2", vector:new(1, 0, 0))
-      all_player_sound("h1_ui_main_menu_appear")
-   end, 18000)
-
-   game:ontimeout(function()
-      all_player_notify_message_fast("1", vector:new(1, 0, 0))
-      all_player_sound("h1_ui_main_menu_appear")
-   end, 19000)
-
-   game:ontimeout(function()
-      all_player_notify_message("Zombies are coming!", vector:new(1, 0, 0))
-      --all_player_sound("h1_ui_menu_overheat_machine_gun")
-      all_player_sound("nuke_explosion_boom")
-      chose_zombies()
-   end, 20000)
-end, 30000)
+start_zombieland()
