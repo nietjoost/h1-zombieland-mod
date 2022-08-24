@@ -54,26 +54,26 @@ end
 
 function giveWeapon(player, weaponName, weaponCost)
     if player.money < weaponCost then
-        player:clientMsg("^1 You have not enough money!")
+        player:PlayerMessage("^1 You have not enough money!")
         return
     end
 
     local weapons = player:getweaponslistall()
     for i = 1, #weapons do
         if weapons[i] == weaponName then
-            player:clientMsg("^1You already bought this weapon!")
+            player:PlayerMessage("^1You already bought this weapon!")
             return
         end
     end
 
     player.money = player.money - weaponCost
-    player:update_money_HUD()
+    player:UpdateMoneyHUD()
 
     player:giveweapon(weaponName)
     player:switchtoweapon(weaponName)
     player:givemaxammo(weaponName)
 
-    player:clientMsg("You bought a ^2weapon!")
+    player:PlayerMessage("You bought a ^2weapon!")
 
     player:notify("close_menu")
     player.menus = 1

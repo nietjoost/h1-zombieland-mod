@@ -1,20 +1,16 @@
 game:precachesound("rocket_explode_concrete_layer")
 
 function check_flags(posFlag, posTP)
-    for index, player in ipairs(players) do
-        local maxDistance = 50
+    for player_flag_index, player_flag in ipairs(players) do
+        local max_distance = 50
 
-        for flagIndex, flag in ipairs(posFlag) do
-            local distance = game:distance(player.origin, posFlag[flagIndex])
-            if (distance <= maxDistance) then
-                player:setorigin(posTP[flagIndex])
-                player:clientiprintln("^4You have been teleported!")
-                player:playlocalsound("rocket_explode_concrete_layer")        
+        for flag_index, flag in ipairs(posFlag) do
+            local player_distance = game:distance(player_flag.origin, posFlag[flag_index])
+            if (player_distance <= max_distance) then
+                player_flag:setorigin(posTP[flag_index])
+                player_flag:clientiprintln("^4You have been teleported!")
+                player_flag:playlocalsound("rocket_explode_concrete_layer")        
             end
         end
-    end
-
-    for index2, player2 in ipairs(players) do
-        --print(player2.origin)
     end
 end

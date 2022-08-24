@@ -1,62 +1,66 @@
--- [[ HUD: create function ]]--
-function entity:money_spawned()
-    self.hudMoney = game:newclienthudelem(self)
-    self.hudMoney.horzalign = "left"
-    self.hudMoney.alignx = "left"
-    self.hudMoney.y = 150
-    self.hudMoney.x = 5
-    self.hudMoney.font = "bigfixed"
-    self.hudMoney.fontscale = 1.2
-    self.hudMoney.hidewhendead = true
-    self.hudMoney.hidewheninmenu = true
-    self.hudMoney.glowalpha = 0.3
-    self.hudMoney.glowcolor = vector:new(0, 0, 1)
-    self.hudMoney:settext("$" .. self.money)
+-- [[ HUD: money create function ]]--
+function entity:CreateMoneyHUD()
+    self.hud_money = game:newclienthudelem(self)
+    self.hud_money.horzalign = "left"
+    self.hud_money.alignx = "left"
+    self.hud_money.y = 150
+    self.hud_money.x = 5
+    self.hud_money.font = "bigfixed"
+    self.hud_money.fontscale = 1.2
+    self.hud_money.hidewhendead = true
+    self.hud_money.hidewheninmenu = true
+    self.hud_money.glowalpha = 0.3
+    self.hud_money.glowcolor = vector:new(0, 0, 1)
+    self.hud_money:settext("$" .. self.money)
 end
 
-function entity:money_annimation(local_money)   
-    if self.hudMoneyExtra ~= nil then
-        self.hudMoneyExtra:destroy()
+
+-- [[ HUD: animate money function ]]--
+function entity:AnimateMoneyHUD(local_money)   
+    if self.hud_money_extra ~= nil then
+        self.hud_money_extra:destroy()
     end
 
-    self.hudMoneyExtra = game:newclienthudelem(self)
-    self.hudMoneyExtra.horzalign = "left"
-    self.hudMoneyExtra.alignx = "left"
-    self.hudMoneyExtra.y = 150
-    self.hudMoneyExtra.x = 5
-    self.hudMoneyExtra.font = "bigfixed"
-    self.hudMoneyExtra.fontscale = 1.2
-    self.hudMoneyExtra.glowalpha = 0.3
-    self.hudMoneyExtra.glowcolor = vector:new(0, 1, 0)
-    self.hudMoneyExtra:settext("$" .. local_money)
-    self.hudMoneyExtra:moveovertime(1)
-    self.hudMoneyExtra:fadeovertime(1)
-    self.hudMoneyExtra.alpha = 0
-    self.hudMoneyExtra.x = 56
-    self.hudMoneyExtra.y = 187
+    self.hud_money_extra = game:newclienthudelem(self)
+    self.hud_money_extra.horzalign = "left"
+    self.hud_money_extra.alignx = "left"
+    self.hud_money_extra.y = 150
+    self.hud_money_extra.x = 5
+    self.hud_money_extra.font = "bigfixed"
+    self.hud_money_extra.fontscale = 1.2
+    self.hud_money_extra.glowalpha = 0.3
+    self.hud_money_extra.glowcolor = vector:new(0, 1, 0)
+    self.hud_money_extra:settext("$" .. local_money)
+    self.hud_money_extra:moveovertime(2)
+    self.hud_money_extra:fadeovertime(2)
+    self.hud_money_extra.alpha = 0
+    self.hud_money_extra.x = 56
+    self.hud_money_extra.y = 187
 
     game:ontimeout(function()
-        if self.hudMoneyExtra ~= nil then
-            self.hudMoneyExtra:destroy()
+        if self.hud_money_extra ~= nil then
+            self.hud_money_extra:destroy()
         end
-    end, 1000)
+    end, 2000)
 end
+
 
 -- [[ HUD: update money function ]]--
-function entity:update_money_HUD()
+function entity:UpdateMoneyHUD()
     if self.type == "zombie" then
         self.money = self.money + 50
-        self:money_annimation(50)
+        self:AnimateMoneyHUD(50)
     else
         self.money = self.money + 500
-        self:money_annimation(500)
+        self:AnimateMoneyHUD(500)
     end
-    self.hudMoney:settext("$" .. self.money)
+    self.hud_money:settext("$" .. self.money)
 end
 
+
 -- [[ EVENT: set money HUD ]]--
-function money_connected(player)
+function MoneyConnected(player)
     player:onnotify("spawned_player", function()
-        player:money_spawned()
+        player:CreateMoneyHUD()
     end)
 end

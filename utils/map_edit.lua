@@ -1,13 +1,14 @@
+-- [[ MAP EDIT: functions ]] --
+
+
 function SpawnBox(origin, angles, type, issolid)
     angles = angles or vector:new(0, 0, 0)
 
     local box = game:spawn("script_model", origin)
     box:setmodel("com_plasticcase_beige_big")
     box.angles = angles
-
     box:solid()
-    --box:clonebrushmodeltoscriptmodel(airdropCollision);
-
+    
     return box
 end
 

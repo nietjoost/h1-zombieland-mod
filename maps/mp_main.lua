@@ -1,30 +1,30 @@
+-- [[ VARIABLE ]] --
 main_level  = {}
 
-function buildSequence(map)
-    for index, player in ipairs(players) do
-        player:notify_message("Building map!", vector:new(0, 0, 1))
-    end
+-- [[ Build sequence with teleport check ]] --
+function BuildSequence(selected_map)
+    AllPlayerNotifyMessage("Building map!", vector:new(0, 0, 1))
 
-    building = building_map()
+    building_succes = BuildMap()
 
-    if building then
+    if building_succes then
         game:oninterval(function()
-            check_flags(map.posFlag, map.posTP)
+            check_flags(selected_map.posFlag, selected_map.posTP)
         end, 0)
     end
 end
 
-
+-- [[ Level manager: main function ]] --
 main_level.main = function()
-    mapfile = io.open(scriptdir() .. "/maps/" .. game:getdvar("mapname") .. ".lua", "r")
-    if (mapfile == nil) then
+    map_file = io.open(scriptdir() .. "/maps/" .. game:getdvar("mapname") .. ".lua", "r")
+    if (map_file == nil) then
         print("[ZombieLand] Map not found!")
     else
-        mapfile:close()
-        map = require("maps/" .. game:getdvar("mapname"))
+        map_file:close()
+        selected_map = require("maps/" .. game:getdvar("mapname"))
         
         game:ontimeout(function()
-            buildSequence(map)
+            BuildSequence(selected_map)
         end, 6000)
     end
 end

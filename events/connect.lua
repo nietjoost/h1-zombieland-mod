@@ -16,31 +16,31 @@ function player_connected(player)
 
     player:onnotify("spawned_player", function()
         if player.type == "zombie" then
-            player:welcome_message("You are now a zombie!", vector:new(1, 0, 0))
-            player:giveZombieClass()
+            player:CreateTopMessage("You are now a zombie!", vector:new(1, 0, 0))
+            player:GiveZombieClass()
             
         elseif player.type == nil then
             table.insert(survivors, player)
-            player:welcome_message("Welcome to RooieRonnie's ZombieLand", vector:new(0, 1, 0))
-            player:givePlayerClass()
+            player:CreateTopMessage("Welcome to RooieRonnie's ZombieLand", vector:new(0, 1, 0))
+            player:GivePlayerClass()
 
             game:ontimeout(function()
 
-                player:welcome_message("Survive as long as possible to win!", vector:new(1, 0, 0))
+                player:CreateTopMessage("Survive as long as possible to win!", vector:new(1, 0, 0))
 
                 game:ontimeout(function()
-                    player:welcome_message("Press [{+actionslot 2}] to open the shop!", vector:new(0, 0, 1))
+                    player:CreateTopMessage("Press [{+actionslot 2}] to open the shop!", vector:new(0, 0, 1))
                 end, 9000)
             end, 10000)
 
             player.type = "survivor"
         end
 
-        player:clientMsg("^4Welcome to ^1RooieRonnie's ^6Zombieland!")
-        player:clientMsg("^5Creaded by ^2Joost de Niet!")
+        player:PlayerMessage("^4Welcome to ^1RooieRonnie's ^6Zombieland!")
+        player:PlayerMessage("^5Creaded by ^2Joost de Niet!")
     end)
 
-    all_player_sound("at_5_semtex_incoming")
+    AllPlayerSound("at_5_semtex_incoming")
 end
 
 function player_disconnected(player)  
@@ -59,7 +59,7 @@ function player_disconnected(player)
 
         for zomb_index_dis, loop_zomb_dis in ipairs(zombies) do
             if loop_zomb_dis == player then
-                table.remove(survivors, zomb_index_dis)
+                table.remove(zombies, zomb_index_dis)
             end
         end
     end)

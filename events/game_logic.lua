@@ -7,29 +7,29 @@ function chose_zombies()
       do
          zombie1 = players[math.random(1, #players)]
          zombie2 = players[math.random(1, #players)]
-         zombie1:changeteam("axis")
-         zombie2:changeteam("axis")
+         zombie1:ChangeTeam("axis")
+         zombie2:ChangeTeam("axis")
       end
       return
    end
 
    zombie1 = players[math.random(1, #players)]
-   zombie1:changeteam("axis")
+   zombie1:ChangeTeam("axis")
 end
 
 -- [[ Message: zombies are in-coming ]]--
 function start_zombieland(start_zombieland_timer)
    game:ontimeout(function()
-      all_player_notify_message("Zombies will be chosen in 20 seconds!", vector:new(1, 0, 0))
-      all_player_sound("h1_ui_sub_menu_campain_appear")
+      AllPlayerNotifyMessage("Zombies will be chosen in 20 seconds!", vector:new(1, 0, 0))
+      AllPlayerSound("h1_ui_sub_menu_campain_appear")
 
       local count_down = 10
       while(count_down ~= 0)
          do
             local number = count_down
             game:ontimeout(function()
-               all_player_notify_message_fast(number, vector:new(1, 0, 0))
-               all_player_sound("h1_ui_main_menu_appear")
+               AllPlayerNotifyMessageFast(number, vector:new(1, 0, 0))
+               AllPlayerSound("h1_ui_main_menu_appear")
             end, 19000 - (1000*count_down))
             count_down = count_down - 1
          end
@@ -37,14 +37,14 @@ function start_zombieland(start_zombieland_timer)
 
       game:ontimeout(function()
          if #players == 1 then
-            all_player_message("Not enough players!", vector:new(1, 0, 0))
-            all_player_notify_message("Waiting for more players....", vector:new(0, 1, 0))
+            AllPlayerMessage("Not enough players!", vector:new(1, 0, 0))
+            AllPlayerNotifyMessage("Waiting for more players....", vector:new(0, 1, 0))
             config.enough_people = false
             return
          end
 
-         all_player_notify_message("Zombies are coming!", vector:new(1, 0, 0))
-         all_player_sound("nuke_explosion_boom")
+         AllPlayerNotifyMessage("Zombies are coming!", vector:new(1, 0, 0))
+         AllPlayerSound("nuke_explosion_boom")
 
          -- [[ New players joins zombies ]]--
          config.enough_people = true
