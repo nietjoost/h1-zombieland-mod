@@ -1,8 +1,47 @@
-function infiniteAmmo(player)
-    if player.infiniteAmmoActive == 1 then
-        player:notify("endInfiniteAmmo")
-        player.infiniteAmmoActive = false
-        player:clientiprintln("Infinite Ammo ^1Disabled")
+-- [[ PLAYER SHOP functions ]] --
+function GiveWeapon(player, weaponName, weaponCost)
+    local weapons = player:getweaponslistall()
+    for i = 1, #weapons do
+        if weapons[i] == weaponName then
+            player:PlayerMessage("^1You already have this weapon!")
+            return
+        end
+    end
+
+    local money = CheckPlayerMoney(player, weaponCost)
+    if money == false then
+        return
+    end
+
+    player:giveweapon(weaponName)
+    player:switchtoweapon(weaponName)
+    player:givemaxammo(weaponName)
+
+    player:PlayerMessage("You bought a ^2weapon!")
+
+    GoToMainMenu(player)
+end
+
+function GiveMaxAmmo(player, cost)
+    local money = CheckPlayerMoney(player, cost)
+    if money == false then
+        return
+    end
+
+    player:PlayerMessage("^2 You bought max ammo!")
+
+    local weapons = player:getweaponslistall()
+    for i = 1, #weapons do
+        player:givemaxammo(weapons[i])
+        player:setweaponammoclip(weapons[i], 1000)
+    end
+
+    GoToMainMenu(player)
+end
+
+function GiveUnlimitedAmmo(player, cost)
+    local money = CheckPlayerMoney(player, cost)
+    if money == false then
         return
     end
 
@@ -13,81 +52,49 @@ function infiniteAmmo(player)
         player.infiniteAmmoActive = true
     end, 50)
 
-    player:clientiprintln("Infinite Ammo ^2Enabled")
+    player:PlayerMessage("^2 You bought unlimited ammo for 1 minute!")
 
-    timer:endon(player, "disconnect")
-    timer:endon(player, "endInfiniteAmmo")
+    GoToMainMenu(player)
+    
+    game:ontimeout(function()
+        timer:clear()
+        player:PlayerMessage("^1 Your unlimited ammo expired!")
+    end, 5000 * 10)
 end
 
-function godmode(player)
-    if player.godmode == 1 then
-        player:notify("endGodmode")
-        player.godmode = false
-        player:clientiprintln("Godmode ^1Disabled")
-        player.maxhealth = 100
+function GiveWallHack(player, cost)
+    local money = CheckPlayerMoney(player, cost)
+    if money == false then
         return
     end
 
-    player:setperk( "specialty_falldamage", false );
+    player:thermalvisionfofoverlayon()
+    player:PlayerMessage("^2 You bought wallhack for 5 minutes!")
 
-    local timer = game:oninterval(function ()
-        player.maxhealth = 10000 
-        player.health = player.maxhealth
-    end, 500)
- 
-    player.godmode = true
-    player:clientiprintln("Godmode ^2Enabled")
-
-    timer:endon(player, "disconnect")
-    timer:endon(player, "endGodmode")
+    GoToMainMenu(player)
+    
+    game:ontimeout(function()
+        player:thermalvisionfofoverlayoff()
+        player:PlayerMessage("^1 Your wallhack expired!")
+    end, 5000 * 60)
 end
 
-function toggleHighJumping(player)
-    if game:getdvarint("jump_height") > 39 then
-        game:setdvar("jump_height", 39)
-        player:clientiprintln("High Jump ^1Disabled")
-    else
-        game:setdvar("jump_height", 999)
-        player:clientiprintln("High Jump ^2Enabled")
-    end
-end
 
-function giveWeapon(player, weaponName, weaponCost)
-    if player.money < weaponCost then
+-- [[ Abstract function ]] --
+function CheckPlayerMoney(player, cost)
+    if player.money < cost then
         player:PlayerMessage("^1 You have not enough money!")
-        return
+        return false
     end
 
-    local weapons = player:getweaponslistall()
-    for i = 1, #weapons do
-        if weapons[i] == weaponName then
-            player:PlayerMessage("^1You already bought this weapon!")
-            return
-        end
-    end
+    player:UpdateMoneyHUDBuy(player, cost)
 
-    player.money = player.money - weaponCost
-    player:UpdateMoneyHUD()
+    return true
+end
 
-    player:giveweapon(weaponName)
-    player:switchtoweapon(weaponName)
-    player:givemaxammo(weaponName)
 
-    player:PlayerMessage("You bought a ^2weapon!")
-
+function GoToMainMenu(player)
     player:notify("close_menu")
     player.menus = 1
-    main_menu(player)
-end
-
-function wallhack(player)
-    if player.wallHack == 1 then
-        player:thermalvisionfofoverlayoff()
-        player.wallHack = false
-        player:clientiprintln("Wallhack ^1Disabled")
-    else
-        player:thermalvisionfofoverlayon()
-        player.wallHack = true
-        player:clientiprintln("Wallhack ^2Enabled")
-    end
+    LoadMainMenu(player)
 end

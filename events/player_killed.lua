@@ -15,12 +15,14 @@ game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, di
 
     if _self.name ~= attacker.name then
         if attacker.name ~= nil then
-            attacker:UpdateMoneyHUD()
+            attacker:UpdateMoneyHUDKill()
         end
     end
-
-    _self.hud_money:destroy()
-    _self.hud_money = nil
+    
+    if _self.hud_money ~= nil then
+        _self.hud_money:destroy()
+        _self.hud_money = nil
+    end
 
     if _self.type == "zombie" then
         return

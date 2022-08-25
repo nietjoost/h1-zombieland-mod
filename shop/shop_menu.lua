@@ -1,8 +1,11 @@
+-- [[ MENU require's ]] --
 require("shop/shop_hud")
 require("shop/shop_functions")
 require("shop/shop_player")
 require("shop/shop_weapons_config")
 
+
+-- [[ MENU settings ]] --
 -- Customize color, alpha, and title. (Color uses RGB values divided by 255 iirc)
 selected_color        = vector:new(0.0, 0.0, 0.0)
 not_selected_color    = vector:new(1.0, 1.0, 1.0) 
@@ -11,10 +14,15 @@ background_alpha      = 0.3
 outline_box_color     = vector:new(0.0, 1.0, 1.0)
 menu_text_color       = vector:new(0.0, 0.0, 1.0)
 menu_title            = "ZombieLand Shop"
+menu_status_color     = vector:new(1.0, 0.0, 0.0)
 
-main_menu_options = {"Weapon shop", "Perk shop"}
 
-function shop_connected(player)
+-- [[ MAIN menu options ]] --
+main_menu_options = {"General shop", "Weapon shop", "Perk shop"}
+
+
+-- [[ MAIN MENU event ]] --
+function ShopConnected(player)
     player:notifyonplayercommand("toggle_menu", "+actionslot 2")
     initPlayer(player)
 
@@ -26,25 +34,25 @@ function shop_connected(player)
             return
         end
 
-        main_menu(player)
+        LoadMainMenu(player)
         player.menus = player.menus + 1
         player.menu_open = true
     end)
 end
 
-function main_menu(player)
-    new_menu(player, main_menu_options,
+function LoadMainMenu(player)
+    CreateMenu(player, main_menu_options,
     {
         function() 
-            weaponMenu(player)
+            GeneralMenu(player)
             player.menus = player.menus + 1
         end,
         function()
-            perkMenu(player)
+            WeaponMenu(player)
             player.menus = player.menus + 1
         end,
         function() 
-            killstreakMenu(player) 
+            PerkMenu(player) 
             player.menus = player.menus + 1
         end,
     }, function() 
@@ -54,7 +62,9 @@ function main_menu(player)
     end)
 end
 
-function new_menu(player, options, actions, backaction)
+
+-- [[ Create MAIN menu ]] --
+function CreateMenu(player, options, actions, backaction)
     player:notify("destroy_menu")
 
     -- setup controls & notifies
@@ -120,36 +130,50 @@ function new_menu(player, options, actions, backaction)
     close_menu:endon(player, "destroy_menu")
 end
 
-function GetWeaponString(player, type, cost)
+
+-- [[ Create SUB MENU ]] --
+function WeaponMenu(player)
+    CreateMenu(player, { GetBuyString(player, "SMG", buy_weapons.weapon1cost), GetBuyString(player, "Assault", buy_weapons.weapon2cost),
+    GetBuyString(player, "LMG", buy_weapons.weapon3cost), GetBuyString(player, "Sniper", buy_weapons.weapon4cost),
+    GetBuyString(player, "Shotgun", buy_weapons.weapon4cost)}, {
+        function() GiveWeapon(player, buy_weapons.weapon1, buy_weapons.weapon1cost) end,
+        function() GiveWeapon(player, buy_weapons.weapon2, buy_weapons.weapon2cost) end,
+        function() GiveWeapon(player, buy_weapons.weapon3, buy_weapons.weapon3cost) end,
+        function() GiveWeapon(player, buy_weapons.weapon4, buy_weapons.weapon4cost) end,
+        function() GiveWeapon(player, buy_weapons.weapon5, buy_weapons.weapon5cost) end,
+    }, function() 
+        player.menus = player.menus - 1
+        LoadMainMenu(player)
+    end)
+end
+
+function PerkMenu(player)
+CreateMenu(player, {"Perk 1", "Perk 2"}, {
+        function() GiveWeapon(player, buy_weapons.weapon1, buy_weapons.weapon1cost) end,
+        function() GiveWeapon(player, buy_weapons.weapon1, buy_weapons.weapon1cost) end,
+    }, function() 
+        player.menus = player.menus - 1
+        LoadMainMenu(player)
+    end)
+end
+
+function GeneralMenu(player)
+CreateMenu(player, { GetBuyString(player, "Max ammo", 2000),  GetBuyString(player, "Unlimited ammo", 4000), GetBuyString(player, "Wallhack", 5000)}, {
+        function() GiveMaxAmmo(player, 2) end,
+        function() GiveUnlimitedAmmo(player, 4) end,
+        function() GiveWallHack(player, 5) end,
+    }, function() 
+        player.menus = player.menus - 1
+        LoadMainMenu(player)
+    end)
+end
+
+
+-- [[ Extra menu functions ]] --
+function GetBuyString(player, type, cost)
     if player.money < cost then
         return (type .. "  ^1$" .. cost)
     else
         return (type .. "  ^2$" .. cost)
     end
-end
-
-
-function weaponMenu(player)
-    new_menu(player, { GetWeaponString(player, "SMG", buy_weapons.weapon1cost), GetWeaponString(player, "Assault", buy_weapons.weapon2cost),
-    GetWeaponString(player, "LMG", buy_weapons.weapon3cost), GetWeaponString(player, "Sniper", buy_weapons.weapon4cost),
-    GetWeaponString(player, "Shotgun", buy_weapons.weapon4cost)}, {
-        function() giveWeapon(player, buy_weapons.weapon1, buy_weapons.weapon1cost) end,
-        function() giveWeapon(player, buy_weapons.weapon2, buy_weapons.weapon2cost) end,
-        function() giveWeapon(player, buy_weapons.weapon3, buy_weapons.weapon3cost) end,
-        function() giveWeapon(player, buy_weapons.weapon4, buy_weapons.weapon4cost) end,
-        function() giveWeapon(player, buy_weapons.weapon5, buy_weapons.weapon5cost) end,
-    }, function() 
-        player.menus = player.menus - 1
-        main_menu(player)
-    end)
-end
-
-function perkMenu(player)
-new_menu(player, {"Perk 1", "Perk 2"}, {
-        function() giveWeapon(player, buy_weapons.weapon1, buy_weapons.weapon1cost) end,
-        function() giveWeapon(player, buy_weapons.weapon1, buy_weapons.weapon1cost) end,
-    }, function() 
-        player.menus = player.menus - 1
-        main_menu(player)
-    end)
 end

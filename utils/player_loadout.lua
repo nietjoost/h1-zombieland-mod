@@ -10,7 +10,7 @@ end
 
 
 function entity:GivePlayerClass()
-    if map == nill then
+    if map == nil then
         return
     end
     self:clearperks()

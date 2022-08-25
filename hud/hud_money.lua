@@ -16,7 +16,7 @@ end
 
 
 -- [[ HUD: animate money function ]]--
-function entity:AnimateMoneyHUD(local_money)   
+function entity:AnimateMoneyHUDKill(local_money)   
     if self.hud_money_extra ~= nil then
         self.hud_money_extra:destroy()
     end
@@ -44,17 +44,58 @@ function entity:AnimateMoneyHUD(local_money)
     end, 2000)
 end
 
+function entity:AnimateMoneyHUDBuy(local_money)   
+    if self.hud_money_buy ~= nil then
+        self.hud_money_buy:destroy()
+    end
+    
+    self.hud_money_buy = nil
+    self.hud_money_buy = game:newclienthudelem(self)
+    self.hud_money_buy.horzalign = "left"
+    self.hud_money_buy.alignx = "left"
+    self.hud_money_buy.y = 150
+    self.hud_money_buy.x = 5
+    self.hud_money_buy.font = "bigfixed"
+    self.hud_money_buy.fontscale = 1.2
+    self.hud_money_buy.glowalpha = 0.3
+    self.hud_money_buy.glowcolor = vector:new(1, 0, 0)
+    self.hud_money_buy:settext("-$" .. local_money)
+    self.hud_money_buy:moveovertime(2)
+    self.hud_money_buy:fadeovertime(2)
+    self.hud_money_buy.alpha = 0
+    self.hud_money_buy.x = 56
+    self.hud_money_buy.y = 187
+
+    game:ontimeout(function()
+        if self.hud_money_buy ~= nil then
+            self.hud_money_buy:destroy()
+        end
+    end, 2000)
+end
+
 
 -- [[ HUD: update money function ]]--
-function entity:UpdateMoneyHUD()
+function entity:UpdateMoneyHUDKill()
     if self.type == "zombie" then
         self.money = self.money + 50
-        self:AnimateMoneyHUD(50)
+        self:AnimateMoneyHUDKill(50)
     else
         self.money = self.money + 500
-        self:AnimateMoneyHUD(500)
+        self:AnimateMoneyHUDKill(500)
     end
+
+    if self.hud_money == nil then
+        self:CreateMoneyHUD()
+    end
+
     self.hud_money:settext("$" .. self.money)
+end
+
+function entity:UpdateMoneyHUDBuy(player, cost)
+    self.money = self.money - cost
+    self.hud_money:settext("$" .. self.money)
+
+    player:AnimateMoneyHUDBuy(cost)
 end
 
 
