@@ -56,4 +56,15 @@ function start_zombieland(start_zombieland_timer)
    end, 30000)
 end
 
+
+-- [[ Check for players ]]--
+function CheckForPlayers()
+   if #survivors == 0 then
+        AllPlayerMessage("The zombies have won!", vector:new(1, 0, 0))
+        print("Zombies has won!")
+    end
+end
+
+
+-- [[ EVENT ]]--
 start_zombieland()

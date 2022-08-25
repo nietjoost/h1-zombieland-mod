@@ -14,7 +14,9 @@ game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, di
     end
 
     if _self.name ~= attacker.name then
-        attacker:UpdateMoneyHUD()
+        if attacker.name ~= nil then
+            attacker:UpdateMoneyHUD()
+        end
     end
 
     _self.hud_money:destroy()
@@ -36,8 +38,5 @@ game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, di
         end
     end
 
-    if #survivors == 0 then
-        AllPlayerMessage("The zombies have won!", vector:new(1, 0, 0))
-        print("Zombies has won!")
-    end
+    CheckForPlayers()
 end)

@@ -1,18 +1,27 @@
-function player_connected(player)
+-- [[ PLAYER CONNECTED ONCE ]] --
+function PlayerConnectedOnce(player)
     table.insert(players, player)
-    
+
+    player:onnotify("spawned_player", function()
+        player:PlayerMessage("^4Welcome to ^1RooieRonnie's ^6Zombieland!")
+        player:PlayerMessage("^5Creaded by ^2Joost de Niet!")
+    end)
+end
+
+-- [[ PLAYER CONNECTED ]] --
+function PlayerConnected(player)
     if config.started then
         player:scriptcall("maps/mp/gametypes/_menus", "_id_8027", "axis")
+        player.money = 50
     else
         player:scriptcall("maps/mp/gametypes/_menus", "_id_8027", "allies")
+        player.money = 500
     end
 
     if config.started == false and config.enough_people == false then
         start_zombieland()
         config.enough_people = true
     end
-
-    player.money = 500
 
     player:onnotify("spawned_player", function()
         if player.type == "zombie" then
@@ -35,32 +44,16 @@ function player_connected(player)
 
             player.type = "survivor"
         end
-
-        player:PlayerMessage("^4Welcome to ^1RooieRonnie's ^6Zombieland!")
-        player:PlayerMessage("^5Creaded by ^2Joost de Niet!")
     end)
-
-    AllPlayerSound("at_5_semtex_incoming")
 end
 
-function player_disconnected(player)  
+
+-- [[ PLAYER DISCONNECT ]] --
+function PlyerDisconnected(player)  
     player:onnotifyonce("disconnect", function ()
-        for i, p in ipairs(players) do
-            if p == player then
-                table.remove(players, i)
-            end
-        end
-
-        for sur_index_dis, loop_sur_dis in ipairs(survivors) do
-            if loop_sur_dis == player then
-                table.remove(survivors, sur_index_dis)
-            end
-        end
-
-        for zomb_index_dis, loop_zomb_dis in ipairs(zombies) do
-            if loop_zomb_dis == player then
-                table.remove(zombies, zomb_index_dis)
-            end
-        end
+        CheckForPlayers()
+        player:RemovePlayerFromTable(players)
+        player:RemovePlayerFromTable(survivors)
+        player:RemovePlayerFromTable(zombies)
     end)
 end

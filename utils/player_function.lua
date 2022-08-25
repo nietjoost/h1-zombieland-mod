@@ -19,3 +19,13 @@ function entity:ChangeTeam(team)
     
     self:notify( "end_respawn" )
 end
+
+
+-- [[ PLAYER: remove from given table ]] --
+function entity:RemovePlayerFromTable(remove_table)
+    for table_index, table_player in ipairs(remove_table) do
+        if table_player == player then
+            table.remove(remove_table, table_index)
+        end
+    end
+end
