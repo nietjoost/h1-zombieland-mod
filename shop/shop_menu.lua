@@ -159,9 +159,9 @@ end
 
 function GeneralMenu(player)
 CreateMenu(player, { GetBuyString(player, "Max ammo", 2000),  GetBuyString(player, "Unlimited ammo", 4000), GetBuyString(player, "Wallhack", 5000)}, {
-        function() GiveMaxAmmo(player, 2) end,
-        function() GiveUnlimitedAmmo(player, 4) end,
-        function() GiveWallHack(player, 5) end,
+        function() GiveMaxAmmo(player, 2000) end,
+        function() GiveUnlimitedAmmo(player, 4000) end,
+        function() GiveWallHack(player, 5000) end,
     }, function() 
         player.menus = player.menus - 1
         LoadMainMenu(player)
