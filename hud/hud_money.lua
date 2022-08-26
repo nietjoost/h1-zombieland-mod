@@ -1,5 +1,9 @@
 -- [[ HUD: money create function ]]--
 function entity:CreateMoneyHUD()
+    if self.hud_money ~= nil then
+        self.hud_money:destroy()
+    end
+
     self.hud_money = game:newclienthudelem(self)
     self.hud_money.horzalign = "left"
     self.hud_money.alignx = "left"
@@ -73,7 +77,6 @@ function entity:AnimateMoneyHUDBuy(local_money)
     end, 2000)
 end
 
-
 -- [[ HUD: update money function ]]--
 function entity:UpdateMoneyHUDKill()
     if self.type == "zombie" then
@@ -91,11 +94,11 @@ function entity:UpdateMoneyHUDKill()
     self.hud_money:settext("$" .. self.money)
 end
 
-function entity:UpdateMoneyHUDBuy(player, cost)
+function entity:UpdateMoneyHUDBuy(cost)
     self.money = self.money - cost
     self.hud_money:settext("$" .. self.money)
 
-    player:AnimateMoneyHUDBuy(cost)
+    self:AnimateMoneyHUDBuy(cost)
 end
 
 

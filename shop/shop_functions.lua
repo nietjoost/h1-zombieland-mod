@@ -87,7 +87,7 @@ function CheckPlayerMoney(player, cost)
         return false
     end
 
-    player:UpdateMoneyHUDBuy(player, cost)
+    player:UpdateMoneyHUDBuy(cost)
 
     return true
 end

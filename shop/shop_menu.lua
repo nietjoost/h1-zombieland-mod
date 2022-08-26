@@ -1,7 +1,6 @@
 -- [[ MENU require's ]] --
 require("shop/shop_hud")
 require("shop/shop_functions")
-require("shop/shop_player")
 require("shop/shop_weapons_config")
 
 
@@ -23,8 +22,13 @@ main_menu_options = {"General shop", "Weapon shop", "Perk shop"}
 
 -- [[ MAIN MENU event ]] --
 function ShopConnected(player)
+    player:onnotify("spawned_player", function()
+        player.menus = 0
+        player.menu_open = false
+        player:notify("destroy_menu")
+    end)
+
     player:notifyonplayercommand("toggle_menu", "+actionslot 2")
-    initPlayer(player)
 
     player:onnotify("toggle_menu", function()
         if player.menus == 1 then
@@ -159,7 +163,7 @@ end
 
 function GeneralMenu(player)
 CreateMenu(player, { GetBuyString(player, "Max ammo", 2000),  GetBuyString(player, "Unlimited ammo", 4000), GetBuyString(player, "Wallhack", 5000)}, {
-        function() GiveMaxAmmo(player, 2000) end,
+        function() GiveMaxAmmo(player, 20) end,
         function() GiveUnlimitedAmmo(player, 4000) end,
         function() GiveWallHack(player, 5000) end,
     }, function() 

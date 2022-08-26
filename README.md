@@ -2,14 +2,18 @@
 
 Zombieland mod for H1 (MWR)
 
-Currently supports these maps:
+Supported maps:
 
+- Ambush
 - Bog
+
+(Note that all maps are supported, but the map edits are not supported)
 
 # How
 
 - Install [h1-mod](https://github.com/h1-mod/h1-mod)
-- Download this mod and place in the Modern Warfare Remastered\h1\scripts folder
+- Download this mod and place the 'rooieronnie_zombieland' folder in the Modern Warfare Remastered\h1\scripts\ folder
+- Start a private match or dedicated server to play the mod
 
 ## Showcase
 

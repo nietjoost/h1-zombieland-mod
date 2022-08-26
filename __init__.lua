@@ -4,6 +4,11 @@ if game:getdvar("gamemode") ~= "mp" then
     return
 end
 
+if game:getdvar("g_gametype") ~= "war" then
+    print("[ZombieLand] This mod is only for team deathmatch!")
+    return
+end
+
 -- [[ GLOBAL VARIABLES ]] --
 players = {}
 survivors = {}
