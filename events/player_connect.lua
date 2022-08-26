@@ -43,6 +43,7 @@ function PlayerConnected(player)
             end, 10000)
 
             player.type = "survivor"
+            player:freezecontrols(false)
         end
     end)
 end

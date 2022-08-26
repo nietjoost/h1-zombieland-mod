@@ -49,32 +49,21 @@ function entity:AnimateMoneyHUDKill(local_money)
 end
 
 function entity:AnimateMoneyHUDBuy(local_money)   
-    if self.hud_money_buy ~= nil then
-        self.hud_money_buy:destroy()
-    end
-    
-    self.hud_money_buy = nil
     self.hud_money_buy = game:newclienthudelem(self)
     self.hud_money_buy.horzalign = "left"
     self.hud_money_buy.alignx = "left"
-    self.hud_money_buy.y = 150
-    self.hud_money_buy.x = 5
+    self.hud_money_buy.y = 160
+    self.hud_money_buy.x = 10
     self.hud_money_buy.font = "bigfixed"
     self.hud_money_buy.fontscale = 1.2
     self.hud_money_buy.glowalpha = 0.3
     self.hud_money_buy.glowcolor = vector:new(1, 0, 0)
-    self.hud_money_buy:settext("-$" .. local_money)
+    self.hud_money_buy:settext("$" .. local_money)
     self.hud_money_buy:moveovertime(2)
     self.hud_money_buy:fadeovertime(2)
     self.hud_money_buy.alpha = 0
-    self.hud_money_buy.x = 56
-    self.hud_money_buy.y = 187
-
-    game:ontimeout(function()
-        if self.hud_money_buy ~= nil then
-            self.hud_money_buy:destroy()
-        end
-    end, 2000)
+    self.hud_money_buy.x = 54
+    self.hud_money_buy.y = 167
 end
 
 -- [[ HUD: update money function ]]--
@@ -96,9 +85,10 @@ end
 
 function entity:UpdateMoneyHUDBuy(cost)
     self.money = self.money - cost
-    self.hud_money:settext("$" .. self.money)
 
     self:AnimateMoneyHUDBuy(cost)
+
+    self.hud_money:settext("$" .. self.money)
 end
 
 

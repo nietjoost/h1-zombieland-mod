@@ -36,6 +36,8 @@ function BuildMap()
     SpawnFlag(map.posFlag[5])
     SpawnFlagOutside(map.posFlag[6])
 
+    --SpawnRamp(vector:new(), vector:new())
+
     return true
 end
 

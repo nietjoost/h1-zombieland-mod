@@ -1,14 +1,19 @@
 -- [[ MAP EDIT: functions ]] --
-
+local GetCarepackageCollision = function ()
+    local ent = game:getent("patchclip_player_32_32_32", "targetname")
+    return ent
+end
 
 function SpawnBox(origin, angles, type, issolid)
+    local airdropCollision = GetCarepackageCollision()
     angles = angles or vector:new(0, 0, 0)
 
     local box = game:spawn("script_model", origin)
     box:setmodel("com_plasticcase_beige_big")
     box.angles = angles
     box:solid()
-    
+    box:clonebrushmodeltoscriptmodel(airdropCollision)
+
     return box
 end
 
@@ -43,7 +48,36 @@ function SpawnFloor(startpoint, endpoint)
         end
     end
 
-    return entity;
+    return entity
+end
+
+
+function SpawnWall(startpoint, endpoint)
+    local entity = SpawnOrigin(startpoint, endpoint)
+
+    local width = game:distance(startpoint, endpoint)
+    local height = math.abs(startpoint.z - endpoint.z)
+
+    local xbox = width / 55
+    local ybox = height / 25
+
+    local forward = vector:new(endpoint.x - startpoint.x, endpoint.y - startpoint.y, endpoint.z - startpoint.z)
+    local angles = game:vectortoangles(forward)
+    angles.z = 0
+    angles.x = 0
+
+    forward = vector:new(forward.x / xbox, forward.y / xbox, forward.z / ybox)
+
+    for i = 0, xbox do
+        for j = 0, ybox do
+            local origin = vector:new(startpoint.x + forward.x * i, startpoint.y + forward.y * i, startpoint.z + forward.z * j)
+            local box = SpawnBox(origin, angles)
+
+            box:linkto(entity)
+        end
+    end
+
+    return entity
 end
 
 
@@ -66,5 +100,5 @@ function SpawnRamp(startpoint, endpoint)
         box:linkto(entity)
     end
 
-    return entity;
+    return entity
 end
