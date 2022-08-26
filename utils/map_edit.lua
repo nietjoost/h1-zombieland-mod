@@ -4,7 +4,7 @@ local GetCarepackageCollision = function ()
     return ent
 end
 
-function SpawnBox(origin, angles, type, issolid)
+function SpawnBox(origin, angles)
     local airdropCollision = GetCarepackageCollision()
     angles = angles or vector:new(0, 0, 0)
 
@@ -58,7 +58,7 @@ function SpawnWall(startpoint, endpoint)
     local width = game:distance(startpoint, endpoint)
     local height = math.abs(startpoint.z - endpoint.z)
 
-    local xbox = width / 55
+    local xbox = width / 50
     local ybox = height / 25
 
     local forward = vector:new(endpoint.x - startpoint.x, endpoint.y - startpoint.y, endpoint.z - startpoint.z)

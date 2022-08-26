@@ -39,7 +39,6 @@ build.main()
 game:executecommand("set sv_cheats 1")
 game:executecommand("set team_rebalance 1")
 game:executecommand("set jump_height 60")
-game:executecommand("set jump_enableFallDamage 0")
 game:executecommand("set jump_slowdownEnable 0")
 game:executecommand("set pm_bouncing 1")
 game:executecommand("set pm_bouncingAllAngles 1")
@@ -72,4 +71,6 @@ game:oninterval(function()
     for _, debug_player in ipairs(players) do
         print(debug_player.origin.x .. ", " .. debug_player.origin.y .. ", " .. debug_player.origin.z)
     end
+
+    --print(game:getdvar("mapname"))
 end, 100)
