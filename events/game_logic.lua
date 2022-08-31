@@ -43,15 +43,16 @@ function start_zombieland(start_zombieland_timer)
             return
          end
 
-         AllPlayerNotifyMessage("Zombies are coming!", vector:new(1, 0, 0))
-         AllPlayerSound("nuke_explosion_boom")
-
          -- [[ New players joins zombies ]]--
          config.enough_people = true
          config.started = true
 
          -- [[ Set first infected ]]--
          chose_zombies()
+
+         -- [[ Notify players ]]--
+         AllPlayerNotifyMessage("Zombies are coming!", vector:new(1, 0, 0))
+         AllPlayerSound("mp_enemy_obj_captured")
       end, 19000)
    end, 30000)
 end
@@ -60,8 +61,10 @@ end
 -- [[ Check for players ]]--
 function CheckForPlayers()
    if #survivors == 0 then
-        AllPlayerMessage("The zombies have won!", vector:new(1, 0, 0))
-        print("Zombies has won!")
+         AllPlayerMessage("The zombies have won!", vector:new(1, 0, 0))
+         print("Zombies has won!")
+
+         
     end
 end
 

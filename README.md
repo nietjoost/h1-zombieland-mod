@@ -6,6 +6,8 @@ Supported maps:
 
 - Ambush
 - Bog
+- Pipeline
+- Shipment
 
 (Note that all maps are supported, but the map edits are not supported)
 
@@ -28,5 +30,13 @@ Supported maps:
 | <img src="assets/github/zombie_land_3.png?raw=true" /> |
 | :----------------------------------------------------: |
 |                      In-game shop                      |
+
+| <img src="assets/github/zombie_land_4.png?raw=true" /> |
+| :----------------------------------------------------: |
+|                      In-game shop                      |
+
+| <img src="assets/github/zombie_land_5.png?raw=true" /> |
+| :----------------------------------------------------: |
+|                    In-game map_edit                    |
 
 <br/>

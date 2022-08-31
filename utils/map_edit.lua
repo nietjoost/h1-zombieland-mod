@@ -1,6 +1,6 @@
 -- [[ MAP EDIT: functions ]] --
 local GetCarepackageCollision = function ()
-    local ent = game:getent("patchclip_player_32_32_32", "targetname")
+    local ent = game:getent("patchclip_player_64_64_64", "targetname")
     return ent
 end
 

@@ -21,6 +21,15 @@ function entity:ChangeTeam(team)
 end
 
 
+function entity:is_bot()
+    if (starts_with(self:getguid(), "bot")) then
+        return true
+    else
+        return false
+    end
+end
+
+
 -- [[ PLAYER: remove from given table ]] --
 function entity:RemovePlayerFromTable(remove_table)
     for table_index, table_player in ipairs(remove_table) do
