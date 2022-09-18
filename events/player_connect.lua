@@ -44,6 +44,8 @@ function PlayerConnected(player)
 
             player.type = "survivor"
             player:freezecontrols(false)
+        else
+            player:GivePlayerClass()
         end
     end)
 end

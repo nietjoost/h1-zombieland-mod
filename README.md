@@ -6,6 +6,7 @@ Supported maps:
 
 - Ambush
 - Bog
+- Bug Summer
 - Pipeline
 - Shipment
 

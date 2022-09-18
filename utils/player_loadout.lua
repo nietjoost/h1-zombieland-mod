@@ -5,7 +5,10 @@ function entity:GiveZombieClass()
     self:clearperks()
     self:takeallweapons();
     self:giveweapon("h1_meleejun4_mp_a#none_f#base")
-    self:switchtoweapon("h1_meleejun4_mp_a#none_f#base")
+
+    game:ontimeout(function()
+        self:switchtoweapon("h1_meleejun4_mp_a#none_f#base")
+    end, 5)
 end
 
 

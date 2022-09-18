@@ -29,6 +29,7 @@ require("utils/player_loadout")
 require("utils/player_sound")
 require("utils/player_function")
 require("events/check_flag_tp")
+require("events/check_below_map_tp")
 require("events/player_connect")
 require("events/game_logic")
 require("events/broadcaster")
@@ -70,7 +71,7 @@ level:onnotify("connected", ShopConnected)
 -- [[ DEBUG ]] --
 game:oninterval(function()
     for _, debug_player in ipairs(players) do
-        print(debug_player.origin.x .. ", " .. debug_player.origin.y .. ", " .. debug_player.origin.z)
+        --print(debug_player.origin.x .. ", " .. debug_player.origin.y .. ", " .. debug_player.origin.z)
     end
 
     --print(game:getdvar("mapname"))

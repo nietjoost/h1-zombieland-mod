@@ -27,7 +27,7 @@ game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, di
     if _self.type == "zombie" then
         return
     end
-
+    
     _self.money = 50
     _self.type = "zombie"
     _self.died = true

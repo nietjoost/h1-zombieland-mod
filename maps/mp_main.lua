@@ -10,7 +10,11 @@ function BuildSequence(selected_map)
     if building_succes then
         game:oninterval(function()
             CheckPlayersForFlags(selected_map.posFlag, selected_map.posTP)
-        end, 0)
+        end, 200)
+
+        game:oninterval(function()
+            CheckPlayersForBelowMap(selected_map.below_map_y, selected_map.below_map_tp)
+        end, 1000)
     end
 end
 
