@@ -15,7 +15,6 @@ function entity:ChangeTeam(team)
     self.team = team
     self.pers["teamTime"] = nil
     self.sessionteam = self.pers["team"]
-    self:scriptcall("maps/mp/_utility", "_id_9B42")
     
     self:notify( "end_respawn" )
 end

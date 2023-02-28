@@ -6,9 +6,10 @@ Supported maps:
 
 - Ambush
 - Bog
-- Bug Summer
+- Bog Summer
 - Pipeline
 - Shipment
+- Crash
 
 (Note that all maps are supported, but the map edits are not supported)
 

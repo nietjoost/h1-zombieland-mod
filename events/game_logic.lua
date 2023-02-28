@@ -61,10 +61,22 @@ end
 -- [[ Check for players ]]--
 function CheckForPlayers()
    if #survivors == 0 then
-         AllPlayerMessage("The zombies have won!", vector:new(1, 0, 0))
-         print("Zombies has won!")
+      AllPlayerMessage("The zombies have won!", vector:new(1, 0, 0))
 
-         
+      game:ontimeout(function()
+         AllPlayerFreeze(true)
+
+         game:ontimeout(function()
+            temp = {}
+            temp.firstPlayer = 0
+            for _, player in ipairs(players) do
+               if temp.firstPlayer == 0 then
+                  player:scriptcall("maps/mp/gametypes/_gamelogic", "endgame", "axis", "game['end_reason']['allies_eliminated']")
+                  temp.firstPlayer = 1
+               end
+            end
+         end, 2000)
+      end, 1000)
     end
 end
 

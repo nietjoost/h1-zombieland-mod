@@ -1,8 +1,6 @@
 -- [[ MESSAGE UI: functions ]] --
-
-
 function entity:PlayerMessage(msg)
-    self:clientiprintln("^1[Zombieland] " .. "^7" .. msg)
+    self:iprintln("^1[Zombieland] " .. "^7" .. msg)
 end
 
 
@@ -23,5 +21,11 @@ end
 function AllPlayerNotifyMessageFast(msg, color)
     for _, player in ipairs(players) do
         player:CreateBottomMessageFast(msg, color)
+    end
+end
+
+function AllPlayerFreeze(status)
+    for _, player in ipairs(players) do     
+        player:freezecontrols(status)
     end
 end

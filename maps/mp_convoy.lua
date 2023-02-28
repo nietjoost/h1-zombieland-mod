@@ -34,6 +34,10 @@ map.posTP = {
 }
 
 
+map.below_map_y = -36.00
+map.below_map_tp = vector:new(-830.119629, 551.153137, -63.875000)
+
+
 function BuildMap()
     SpawnFlag(map.posFlag[1])
     SpawnFlagOutside(map.posFlag[2])

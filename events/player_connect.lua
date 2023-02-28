@@ -10,13 +10,9 @@ end
 
 -- [[ PLAYER CONNECTED ]] --
 function PlayerConnected(player)
-    if config.started then
-        player:scriptcall("maps/mp/gametypes/_menus", "_id_8027", "axis")
-        player.money = 50
-    else
-        player:scriptcall("maps/mp/gametypes/_menus", "_id_8027", "allies")
-        player.money = 500
-    end
+    -- Default money if there is a error.
+    player.money = 50
+    HandleMenu(player)
 
     if config.started == false and config.enough_people == false then
         start_zombieland()
@@ -50,6 +46,16 @@ function PlayerConnected(player)
     end)
 end
 
+-- [[ HANDLE MENU ]] --
+function HandleMenu(player)
+    if config.started then
+        player:scriptcall("maps/mp/gametypes/_menus", "setteam", "axis")
+        player.money = 50
+    else
+        player:scriptcall("maps/mp/gametypes/_menus", "setteam", "allies")
+        player.money = 500
+    end
+end
 
 -- [[ PLAYER DISCONNECT ]] --
 function PlyerDisconnected(player)  
