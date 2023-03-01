@@ -1,5 +1,10 @@
 -- [[ EVENTS: on player killed ]] --
 game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, dir, hitloc, timeoffset, deathanimduration)
+    if config.started == false then
+        _self:ChangeTeam("allies")
+        return
+    end
+
     if _self == attacker and config.started == false then
         _self:ChangeTeam("allies")
         return
