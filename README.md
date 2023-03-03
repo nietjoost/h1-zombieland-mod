@@ -41,4 +41,8 @@ Supported maps:
 | :----------------------------------------------------: |
 |                    In-game map_edit                    |
 
+| <img src="assets/github/zombie_land_6.png?raw=true" /> |
+| :----------------------------------------------------: |
+|                   In-game last alive                   |
+
 <br/>
