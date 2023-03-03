@@ -60,7 +60,7 @@ end
 
 -- [[ Check for players ]]--
 function CheckForPlayers()
-   if (config.started == true and #survivors == 0) then
+   if (config.started == true and config.enough_people == true and #survivors == 0) then
       AllPlayerMessage("The zombies have won!", vector:new(1, 0, 0))
 
       game:ontimeout(function()

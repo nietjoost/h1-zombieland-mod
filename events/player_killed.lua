@@ -1,3 +1,5 @@
+game:precachesound("US_1fc_sd_lastalive")
+
 -- [[ EVENTS: on player killed ]] --
 game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, dir, hitloc, timeoffset, deathanimduration)
     if config.started == false then
@@ -46,4 +48,17 @@ game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, di
     end
 
     CheckForPlayers()
+    CheckLastAlive()
 end)
+
+
+-- [[ EVENT: Check for last alive event ]] --
+function CheckLastAlive()
+    if (#survivors == 1 and config.last_alive == false) then
+        for aps_index, player_alive in ipairs(survivors) do
+            config.last_alive = true
+            level:scriptcall("maps/mp/_utility", "teamplayercardsplash", "callout_lastenemyalive", player_alive)
+            player_alive:playlocalsound("US_1fc_sd_lastalive")
+        end
+    end
+end

@@ -12,7 +12,7 @@ function CheckPlayersForFlags(posFlag, posTP)
             if (player_distance <= max_distance) then
                 player_flag:setorigin(posTP[flag_index])
                 player_flag:iprintln("^4You have been teleported!")
-                player_flag:playlocalsound("rocket_explode_concrete_layer")        
+                player_flag:playlocalsound("rocket_explode_concrete_layer")       
             end
         end
     end

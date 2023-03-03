@@ -2,6 +2,11 @@
 function PlayerConnectedOnce(player)
     table.insert(players, player)
 
+    -- If the game has started, set the type of player to zombie
+    if config.started == true then
+        player.type = "zombie"
+    end
+
     player:onnotify("spawned_player", function()
         player:PlayerMessage("^4Welcome to ^1RooieRonnie's ^6Zombieland!")
         player:PlayerMessage("^5Creaded by ^2Joost de Niet!")

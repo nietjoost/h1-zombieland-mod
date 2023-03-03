@@ -16,6 +16,7 @@ zombies = {}
 config = {}
 config.started = false
 config.enough_people = true
+config.last_alive = false
 
 -- [[ Require ]] --
 require("shop/shop_menu")
@@ -34,6 +35,7 @@ require("events/player_connect")
 require("events/game_logic")
 require("events/broadcaster")
 require("events/player_killed")
+require("events/player_connected_watch_events")
 build = require("maps/mp_main")
 build.main()
 
@@ -63,10 +65,10 @@ game:setdynamicdvar("scr_killstreak_kills_heli", 1000)
 -- [[ EVENTS ]] --
 level:onnotify("connected", PlayerConnectedOnce)
 level:onnotify("connected", PlayerConnected)
+level:onnotify("connected", PlayerConnectedWatchEvents)
 level:onnotify("connected", PlyerDisconnected)
 level:onnotify("connected", MoneyConnected)
 level:onnotify("connected", ShopConnected)
-
 
 -- [[ DEBUG ]] --
 game:oninterval(function()
@@ -76,3 +78,5 @@ game:oninterval(function()
 
     --print(game:getdvar("mapname"))
 end, 100)
+
+--game:getent("crash_car_1", "targetname"):delete()
