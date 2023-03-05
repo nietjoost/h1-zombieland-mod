@@ -18,22 +18,20 @@ config.started = false
 config.enough_people = true
 config.last_alive = false
 
-game:executecommand("set scr_skipclasschoice 0")
-
 -- [[ Require ]] --
 require("utils/utils")
 require("shop/shop_menu")
 require("hud/hud_money")
 require("hud/hud_message")
-require("utils/map_spawn")
-require("utils/map_edit")
-require("utils/map_edit_cont")
-require("utils/map_spawn_shop")
-require("utils/map_spawn_zipline")
-require("utils/player_message_ui")
-require("utils/player_loadout")
-require("utils/player_sound")
-require("utils/player_function")
+require("utils/spawn/map_spawn_flag")
+require("utils/spawn/map_spawn_edit")
+require("utils/spawn/map_spawn_edit_cont")
+require("utils/spawn/map_spawn_shop")
+require("utils/spawn/map_spawn_zipline")
+require("utils/player/player_message_ui")
+require("utils/player/player_loadout")
+require("utils/player/player_sound")
+require("utils/player/player_function")
 require("events/check_flag_tp")
 require("events/check_below_map_tp")
 require("events/check_zipline")
@@ -81,7 +79,5 @@ game:oninterval(function()
     for _, debug_player in ipairs(players) do
         --print(debug_player.origin.x .. ", " .. debug_player.origin.y .. ", " .. debug_player.origin.z)
     end
-
     --print(game:getdvar("mapname"))
 end, 100)
---game:iprintlnbold("test")

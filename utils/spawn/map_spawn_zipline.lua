@@ -1,6 +1,6 @@
 -- Set shop location
-function SpawnZipLine()
-    local zipline = game:spawn("script_model", vector:new(-507.05511474609, 551.47717285156, 192.71659851074))
+function SpawnZipLine(startPos, endPos)
+    local zipline = game:spawn("script_model", startPos)
     zipline:setmodel("h1_flag_mp_domination_spetsnaz_blue")
     zipline:show()
     zipline:makeusable()
@@ -11,7 +11,7 @@ function SpawnZipLine()
 
     -- Wait for players trigger
     zipline:onnotify("trigger", function(player)
-        player:StartZipLine(zipline.origin, vector:new(172, 220, 408))
+        player:StartZipLine(zipline.origin, endPos)
     end)
 end
 

@@ -1,6 +1,7 @@
--- [[ First infected function ]]--
+-- [[ Select the first infected ]]--
 function chose_zombies()
-   if #players > 5 then
+   -- Chose multiple infected when there is enough people
+   if #players > 8 then
       zombie1 = nil
       zombie2 = nil
       while(zombie1 == zombie2)
@@ -13,16 +14,20 @@ function chose_zombies()
       return
    end
 
+   -- Chose only one infected
    zombie1 = players[math.random(1, #players)]
    zombie1:ChangeTeam("axis")
 end
 
--- [[ Message: zombies are in-coming ]]--
+-- [[ Start the gamemode [show start message, countdown, chose infected] ]]--
 function start_zombieland(start_zombieland_timer)
    game:ontimeout(function()
+      
+      -- Start countdown message
       AllPlayerNotifyMessage("Zombies will be chosen in 20 seconds!", vector:new(1, 0, 0))
       AllPlayerSound("h1_ui_sub_menu_campain_appear")
 
+      -- The countdown messages
       local count_down = 10
       while(count_down ~= 0)
          do
@@ -35,7 +40,9 @@ function start_zombieland(start_zombieland_timer)
          end
       return
 
+      -- Check for enough people
       game:ontimeout(function()
+         -- Check for enough people with messages
          if #players == 1 then
             AllPlayerMessage("Not enough players!", vector:new(1, 0, 0))
             AllPlayerNotifyMessage("Waiting for more players....", vector:new(0, 1, 0))
@@ -43,14 +50,14 @@ function start_zombieland(start_zombieland_timer)
             return
          end
 
-         -- [[ New players joins zombies ]]--
+         -- SET: New players joins zombies
          config.enough_people = true
          config.started = true
 
-         -- [[ Set first infected ]]--
+         -- Set first infected
          chose_zombies()
 
-         -- [[ Notify players ]]--
+         -- Notify players
          AllPlayerNotifyMessage("Zombies are coming!", vector:new(1, 0, 0))
          AllPlayerSound("mp_enemy_obj_captured")
       end, 19000)
@@ -58,24 +65,17 @@ function start_zombieland(start_zombieland_timer)
 end
 
 
--- [[ Check for players ]]--
+-- [[ Game wining check ]]--
 function CheckForPlayers()
    if (config.started == true and config.enough_people == true and #survivors == 0) then
       AllPlayerMessage("The zombies have won!", vector:new(1, 0, 0))
 
       game:ontimeout(function()
-         temp = {}
-         temp.firstPlayer = 0
-         for _, player in ipairs(players) do
-            if temp.firstPlayer == 0 then
-               player:scriptcall("maps/mp/gametypes/_gamelogic", "forceend")
-               temp.firstPlayer = 1
-            end
-         end
+         level:scriptcall("maps/mp/gametypes/_gamelogic", "forceend")
       end, 3000)
     end
 end
 
 
--- [[ EVENT ]]--
+-- [[ START THE GAMEMODE - event ]]--
 start_zombieland()

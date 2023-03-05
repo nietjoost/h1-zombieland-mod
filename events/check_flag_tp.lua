@@ -1,7 +1,6 @@
 -- [[ PRE CACHE SOUND ]] --
 game:precachesound("rocket_explode_concrete_layer")
 
-
 -- [[ TP players close by FLAG ]] --
 function CheckPlayersForFlags(posFlag, posTP)
     for player_flag_index, player_flag in ipairs(players) do

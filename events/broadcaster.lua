@@ -1,3 +1,4 @@
+-- [[ Broadcaster settings ]] --
 broadcast_messages = {
     "Created by RooieRonnie!",
     "Press 7 (default) to open the menu shop!",
@@ -7,7 +8,7 @@ broadcast_messages = {
 
 broadcast_index = 1
 
--- [[ AUTO CHAT broadcaster ]] --
+-- [[ AUTO CHAT broadcaster - event ]] --
 game:oninterval(function()
     game:executecommand("say " .. broadcast_messages[broadcast_index])
     broadcast_index = broadcast_index + 1

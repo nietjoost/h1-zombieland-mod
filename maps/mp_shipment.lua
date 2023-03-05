@@ -26,7 +26,8 @@ map.below_map_tp = vector:new(706.50140380859, -573.70373535156, 376.125)
 
 -- [[ BUILD instant ]] --
 function PreBuildMap()
-    SpawnShop(vector:new(-701.76135253906, -616.99945068359, 190), "compass_objpoint_airstrike")
+    SpawnShop(vector:new(-701, -616, 190), "compass_objpoint_airstrike")
+    SpawnZipLine(vector:new(-507, 551, 192), vector:new(172, 220, 408))
 end
 
 -- [[ Build map: called later for lag purpose ]] --
