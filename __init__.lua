@@ -18,13 +18,18 @@ config.started = false
 config.enough_people = true
 config.last_alive = false
 
+game:executecommand("set scr_skipclasschoice 0")
+
 -- [[ Require ]] --
+require("utils/utils")
 require("shop/shop_menu")
 require("hud/hud_money")
 require("hud/hud_message")
 require("utils/map_spawn")
 require("utils/map_edit")
 require("utils/map_edit_cont")
+require("utils/map_spawn_shop")
+require("utils/map_spawn_zipline")
 require("utils/player_message_ui")
 require("utils/player_loadout")
 require("utils/player_sound")
@@ -78,5 +83,4 @@ game:oninterval(function()
 
     --print(game:getdvar("mapname"))
 end, 100)
-
---game:getent("crash_car_1", "targetname"):delete()
+--game:iprintlnbold("test")

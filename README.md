@@ -19,6 +19,17 @@ Supported maps:
 - Download this mod and place the 'rooieronnie_zombieland' folder in the Modern Warfare Remastered\h1\scripts\ folder
 - Start a private match or dedicated server to play the mod
 
+# Features
+
+- Infected style gamemode
+- Custom map edits (teleport flags, ziplines, walls, floors)
+- In-game currency
+- Shop menu
+- Custom shop locations
+- Last alive messages
+- Broadcaster messages
+- Sound effects
+
 ## Showcase
 
 | <img src="assets/github/zombie_land_1.png?raw=true" /> |
@@ -44,5 +55,9 @@ Supported maps:
 | <img src="assets/github/zombie_land_6.png?raw=true" /> |
 | :----------------------------------------------------: |
 |                   In-game last alive                   |
+
+| <img src="assets/github/zombie_land_7.png?raw=true" /> |
+| :----------------------------------------------------: |
+|                 In-game physical shop                  |
 
 <br/>
