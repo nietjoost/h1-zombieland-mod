@@ -1,7 +1,4 @@
 -- [[ MAP: mp_shipment (shipment) ]] --
--- [[ BUILD instant ]] --
-SpawnShop(vector:new(-701.76135253906, -616.99945068359, 190), "compass_objpoint_airstrike")
-
 
 -- [[ Map config settings ]] --
 map = {
@@ -26,6 +23,11 @@ map.posTP = {
 
 map.below_map_y = -36.00
 map.below_map_tp = vector:new(706.50140380859, -573.70373535156, 376.125)
+
+-- [[ BUILD instant ]] --
+function PreBuildMap()
+    SpawnShop(vector:new(-701.76135253906, -616.99945068359, 190), "compass_objpoint_airstrike")
+end
 
 -- [[ Build map: called later for lag purpose ]] --
 function BuildMap()

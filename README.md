@@ -29,6 +29,7 @@ Supported maps:
 - Last alive messages
 - Broadcaster messages
 - Sound effects
+- Custom bounces
 
 ## Showcase
 

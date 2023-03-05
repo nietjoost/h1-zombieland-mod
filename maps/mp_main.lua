@@ -3,19 +3,25 @@ main_level  = {}
 
 -- [[ Build sequence with teleport check ]] --
 function BuildSequence(selected_map)
-    AllPlayerNotifyMessage("Building map!", vector:new(0, 0, 1))
 
-    building_succes = BuildMap()
-
-    if building_succes then
-        game:oninterval(function()
-            CheckPlayersForFlags(selected_map.posFlag, selected_map.posTP)
-        end, 200)
-
-        game:oninterval(function()
-            CheckPlayersForBelowMap(selected_map.below_map_y, selected_map.below_map_tp)
-        end, 1000)
+    -- Not all maps has a prebuild map function
+    if PreBuildMap ~=nil then 
+        PreBuildMap() 
     end
+
+    game:ontimeout(function()
+        building_succes = BuildMap()
+
+        if building_succes then
+            game:oninterval(function()
+                CheckPlayersForFlags(selected_map.posFlag, selected_map.posTP)
+            end, 200)
+
+            game:oninterval(function()
+                CheckPlayersForBelowMap(selected_map.below_map_y, selected_map.below_map_tp)
+            end, 1000)
+        end
+    end, 6000)
 end
 
 -- [[ Level manager: main function ]] --
@@ -26,10 +32,8 @@ main_level.main = function()
     else
         map_file:close()
         selected_map = require("maps/" .. game:getdvar("mapname"))
-        
-        game:ontimeout(function()
-            BuildSequence(selected_map)
-        end, 6000)
+
+        BuildSequence(selected_map)
     end
 end
 
