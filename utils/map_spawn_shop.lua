@@ -1,8 +1,3 @@
-local do_not_touch_me = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-local helper_table = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-local random_number = 0
-local new_random_number = 0
-
 -- [[ Spawn a shop model with UI shader ]] --
 function SpawnShop(position, shader)
     -- Set icon location
