@@ -37,6 +37,10 @@ Supported maps:
 | :----------------------------------------------------: |
 |                        In-game                         |
 
+| <img src="assets/github/zombie_land_9.png?raw=true" /> |
+| :----------------------------------------------------: |
+|                    In-game ZipLine                     |
+
 | <img src="assets/github/zombie_land_2.png?raw=true" /> |
 | :----------------------------------------------------: |
 |                        In-game                         |
@@ -60,5 +64,9 @@ Supported maps:
 | <img src="assets/github/zombie_land_7.png?raw=true" /> |
 | :----------------------------------------------------: |
 |                 In-game physical shop                  |
+
+| <img src="assets/github/zombie_land_8.png?raw=true" /> |
+| :----------------------------------------------------: |
+|                  In-game boost player                  |
 
 <br/>

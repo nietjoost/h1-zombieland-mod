@@ -21,7 +21,7 @@ function SpawnShop(position, shader)
     laptop.angles = laptop.angles + vector:new(0, 90, 0)
     laptop:show()
     laptop:makeusable()
-    laptop:sethintstring("Press ^3[{+activate}]^7 to buy Air Support ^7[^2COST: 2000^7]")
+    laptop:sethintstring("Press ^3[{+activate}]^7 to buy Air Support ^7[COST: ^22000^7]")
 
     -- Wait for players trigger
     laptop:onnotify("trigger", function(player)

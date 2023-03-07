@@ -1,13 +1,19 @@
--- Set shop location
 function SpawnZipLine(startPos, endPos)
+    -- Spawn hint string [needs model]
     local zipline = game:spawn("script_model", startPos)
     zipline:setmodel("h1_flag_mp_domination_spetsnaz_blue")
-    zipline:show()
+    zipline:hide()
     zipline:makeusable()
     zipline:sethintstring("Press ^3[{+activate}]^7 to use the zipline")
 
-    local zipLineEffect = game:loadfx("vfx/unique/vfx_marker_ctf")
-    game:playfx(zipLineEffect, zipline.origin) 
+    -- Spawn ZipeLine models
+    local model1 = game:spawn("script_model", startPos + vector:new(0, 0, 100))
+    model1:setmodel("vehicle_cobra_helicopter_d_piece07")
+    model1:show()
+
+    -- Spawn effect
+    local zipLineEffect = game:loadfx("fx/misc/ui_pickup_unavailable_bright")
+    game:playfx(zipLineEffect, zipline.origin)
 
     -- Wait for players trigger
     zipline:onnotify("trigger", function(player)
