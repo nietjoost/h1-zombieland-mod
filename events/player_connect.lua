@@ -2,6 +2,7 @@
 function PlayerConnectedOnce(player)
     -- Insert player to player lists
     table.insert(players, player)
+    player.use_of_booster = 0
 
     -- If the game has started, set the type of player to zombie
     if config.started == true then

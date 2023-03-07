@@ -7,7 +7,7 @@ function SpawnZipLine(startPos, endPos)
     zipline:sethintstring("Press ^3[{+activate}]^7 to use the zipline")
 
     -- Spawn ZipeLine models
-    local model1 = game:spawn("script_model", startPos + vector:new(0, 0, 100))
+    local model1 = game:spawn("script_model", startPos + vector:new(0, 0, 110))
     model1:setmodel("vehicle_cobra_helicopter_d_piece07")
     model1:show()
 
@@ -17,6 +17,7 @@ function SpawnZipLine(startPos, endPos)
 
     -- Wait for players trigger
     zipline:onnotify("trigger", function(player)
+        player:playlocalsound("weap_suitcase_drop_plr")
         player:StartZipLine(zipline.origin, endPos)
     end)
 end
