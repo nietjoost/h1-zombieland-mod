@@ -18,6 +18,15 @@ config.started = false
 config.enough_people = true
 config.last_alive = false
 
+-- [[ Pre cache ]] --
+game:precachemodel("vehicle_cobra_helicopter_d_piece07")
+game:precachemodel("com_plasticcase_beige_big")
+game:precachemodel("laptop_toughbook_01_open")
+game:precachemodel("h1_flag_mp_domination_spetsnaz_blue")
+game:precachemodel("h1_flag_mp_domination_spetsnaz_red")
+game:loadfx("fx/misc/ui_pickup_available_bright")
+game:loadfx("fx/misc/ui_pickup_unavailable_bright")
+
 -- [[ Require ]] --
 require("utils/utils")
 require("shop/shop_menu")

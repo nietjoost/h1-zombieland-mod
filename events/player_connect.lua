@@ -62,7 +62,15 @@ function PlayerConnected(player)
         -- standard surivivor script
         player:freezecontrols(false)
         player:GivePlayerClass()
-        --player:setperk("specialty_rof")
+        
+        -- Temporary fix for tables
+        if player.team == "allies" then
+            player:RemovePlayerFromTable(zombies)
+            table.insert(survivors, player)
+        else
+            player:RemovePlayerFromTable(survivors)
+            table.insert(zombies, player)
+        end
     end)
 end
 

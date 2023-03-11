@@ -1,5 +1,3 @@
-game:precachemodel("vehicle_cobra_helicopter_d_piece07")
-
 function SpawnZipLineBothWays(startPos, endPos)
     game:ontimeout(function()
         SpawnZipLine(startPos, endPos)

@@ -1,6 +1,4 @@
 -- [[ PLAYER: functions ]] --
-
-
 function entity:ChangeTeam(team)
     if self.sessionstate ~= "dead" then
         self.switching_teams = true
