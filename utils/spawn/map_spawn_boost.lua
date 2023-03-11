@@ -13,30 +13,33 @@ function SpawnBoost(startPos, height)
     tire:show()
 
     -- Add and check booster
-    table.insert(boosters, startPos)
+    local boost = {}
+    boost.height = height
+    boost.startPos = startPos
+    table.insert(boosters, boost)
 
     -- Make sure there is only one oninterval for the boosters
     if #boosters == 1 then
-        CheckPlayersByBoosters(startPos, height)
+        CheckPlayersByBoosters()
     end
 end
 
 -- [[ Loop event to check players that are near by boosters ]] --
-function CheckPlayersByBoosters(startPos, height)
+function CheckPlayersByBoosters()
     game:oninterval(function()
         for player_boost_index, player_boost in ipairs(players) do
             local max_distance = 20
-            for booster_index, flag in ipairs(boosters) do
-                local player_distance = game:distance(player_boost.origin, boosters[booster_index])
-                if (player_distance <= max_distance and player_boost.liftz == 0) then
+            for booster_index, booster in ipairs(boosters) do
+                local player_distance = game:distance(player_boost.origin, boosters[booster_index].startPos)
+                if (player_distance <= max_distance and player_boost.use_of_booster == 0) then
                     -- Set player settings
                     player_boost:playlocalsound("weap_harrier_missile_fire")
                     player_boost.health = 9999
                     player_boost.use_of_booster = 1
-            
+                    
                     -- Calculate the the TP steps
                     posa = player_boost.origin
-                    fpos = math.floor(height / 2)
+                    fpos = math.floor(boosters[booster_index].height / 2)
                     h = player_boost.origin.z
 
                     -- Create loop through TP steps
@@ -44,7 +47,7 @@ function CheckPlayersByBoosters(startPos, height)
                     do 
                         h = h + fpos
                         game:ontimeout(function()
-                            player_boost:setorigin(startPos + vector:new(0,0,h))
+                            player_boost:setorigin(boosters[booster_index].startPos + vector:new(0,0,h))
                         end, ms(0.1))
                     end
                    
@@ -52,7 +55,7 @@ function CheckPlayersByBoosters(startPos, height)
                     game:ontimeout(function()
                         player_boost.health = 100
                         player_boost.use_of_booster = 0
-                    end, ((fpos * ms(0.1)) + math.floor(height / 10)))                 
+                    end, ((fpos * ms(0.1)) + math.floor(boosters[booster_index].height / 10)))                 
                 end
             end
         end

@@ -8,27 +8,26 @@ map = {
 }
 
 map.posFlag = { 
-
+    
 }
 
 map.posTP = {
-
+    
 }
 
-
-map.below_map_tp = vector:new(706.50140380859, -573.70373535156, 376.125)
+map.below_map_tp = vector:new(706, -573, 376)
 
 -- [[ BUILD instant ]] --
 function PreBuildMap()
-    SpawnShop(vector:new(-701, -616, 190), "compass_objpoint_airstrike")
-    SpawnZipLineBothWays(vector:new(-507, 551, 192), vector:new(172, 220, 408))
-    SpawnBoost(vector:new(-363, -102, 192), 20)
-    SpawnBoost(vector:new(348, 233, 192), 20)
+    SpawnZipLineBothWays(vector:new(5179, -1013, 160), vector:new(4667, -1805, 307))
+    SpawnZipLineBothWays(vector:new(4484, -4717, 29), vector:new(3734, -3944, -7))
+
+    SpawnBoost(vector:new(3497, -1083, 9), 40)
+    SpawnBoost(vector:new(4626, -3662, -142), 90)
 end
 
 -- [[ Build map: called later for lag purpose ]] --
 function BuildMap()
-    
     return true
 end
 

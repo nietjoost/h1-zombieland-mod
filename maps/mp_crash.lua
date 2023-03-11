@@ -26,7 +26,6 @@ map.posTP = {
 }
 
 
-map.below_map_y = -36.00
 map.below_map_tp = vector:new(-711.76965332031, 2267.7409667969, 243.125)
 
 

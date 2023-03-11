@@ -79,6 +79,13 @@ function GiveWallHack(player, cost)
     end, 5000 * 60)
 end
 
+function GiveKillStreak(player, cost)
+    local money = CheckPlayerMoney(player, cost)
+    if money == false then
+        return
+    end
+end
+
 
 -- [[ Abstract function ]] --
 function CheckPlayerMoney(player, cost)

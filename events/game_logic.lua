@@ -1,5 +1,9 @@
 -- [[ Select the first infected ]]--
 function chose_zombies()
+   if #players == 0 then
+      return
+   end
+
    -- Chose multiple infected when there is enough people
    if #players > 8 then
       zombie1 = nil
