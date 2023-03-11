@@ -62,6 +62,12 @@ game:executecommand("set sv_sayName ^1[ZombieLand]^7")
 -- [[ World settings ]] --
 game:setexpfog(100, 150, 1, 0, 0, 1)
 
+-- Remove triggers that can kill players
+triggerHurt = game:getentarray("trigger_hurt", "classname")
+for i = 1, #triggerHurt do
+    triggerHurt[i]:delete()
+end
+
 -- [[ Disable Killstreaks ]]--
 game:setdvar("scr_killstreak_kills_uav", 1000)
 game:setdynamicdvar("scr_killstreak_kills_uav", 1000)
@@ -85,45 +91,3 @@ game:oninterval(function()
     end
     --print(game:getdvar("mapname"))
 end, 100)
-
-test = game:getentarray("patchclip_ai_16_64_64", "targetname")
-print(#test)
-for i = 1, #test do
-    test[i]:delete()
-end
-
-test = game:getentarray("patchclip_player_16_256_256", "targetname")
-print(#test)
-for i = 1, #test do
-    test[i]:delete()
-end
-
-test = game:getentarray("patchclip_player_16_64_64", "targetname")
-print(#test)
-for i = 1, #test do
-    test[i]:delete()
-end
-
-test = game:getentarray("patchclip_ai_16_256_256", "targetname")
-print(#test)
-for i = 1, #test do
-    test[i]:delete()
-end
-
-test = game:getentarray("trigger_hurt", "classname")
-print(#test)
-for i = 1, #test do
-    test[i]:delete()
-end
-
-test = game:getentarray("patchclip_player_16_128_128", "targetname")
-print(#test)
-for i = 1, #test do
-    test[i]:delete()
-end
-
-test = game:getentarray("patchclip_ai_16_128_128", "targetname")
-print(#test)
-for i = 1, #test do
-    test[i]:delete()
-end

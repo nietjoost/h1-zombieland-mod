@@ -3,6 +3,7 @@ function PlayerConnectedOnce(player)
     -- Insert player to player lists
     table.insert(players, player)
     player.use_of_booster = 0
+    player.use_of_zipline = 0
 
     -- If the game has started, set the type of player to zombie
     if config.started == true then
@@ -61,11 +62,7 @@ function PlayerConnected(player)
         -- standard surivivor script
         player:freezecontrols(false)
         player:GivePlayerClass()
-        --player:setperk("specialty_bulletaccuracy")
-        --local weapons = player:get_specialtydata()
-        --for i = 1, #weapons do
-            --print(weapons[i])
-        --end
+        --player:setperk("specialty_rof")
     end)
 end
 

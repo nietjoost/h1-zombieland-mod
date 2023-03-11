@@ -21,7 +21,7 @@ function SpawnShop(position, shader)
     laptop.angles = laptop.angles + vector:new(0, 90, 0)
     laptop:show()
     laptop:makeusable()
-    laptop:sethintstring("Press ^3[{+activate}]^7 to buy Air Support ^7[COST: ^22000^7]")
+    laptop:sethintstring("Press ^3[{+activate}]^7 to buy Air Support ^7[COST: ^29000^7]")
 
     -- Wait for players trigger
     laptop:onnotify("trigger", function(player)
@@ -30,9 +30,9 @@ function SpawnShop(position, shader)
             return
         end
 
-        if player.money >= 2000 then
+        if player.money >= 9000 then
         else
-            player:iprintlnbold("You don't have enough money!");
+            player:iprintlnbold("^9You don't have enough money!");
         end
     end)
 end

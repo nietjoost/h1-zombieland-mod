@@ -1,6 +1,13 @@
+game:precachemodel("vehicle_cobra_helicopter_d_piece07")
+
 function SpawnZipLineBothWays(startPos, endPos)
-    SpawnZipLine(startPos, endPos)
-    SpawnZipLine(endPos, startPos)
+    game:ontimeout(function()
+        SpawnZipLine(startPos, endPos)
+    end, 2000)
+
+    game:ontimeout(function()
+        SpawnZipLine(endPos, startPos)
+    end, 4000)
 end
 
 function SpawnZipLine(startPos, endPos)
@@ -24,8 +31,11 @@ function SpawnZipLine(startPos, endPos)
 
         -- Wait for players trigger
         zipline:onnotify("trigger", function(player)
-            player:playlocalsound("weap_suitcase_drop_plr")
-            player:StartZipLine(zipline.origin, endPos)
+            if player.use_of_zipline == 0 then
+                player.use_of_zipline = 1
+                player:playlocalsound("weap_suitcase_drop_plr")
+                player:StartZipLine(zipline.origin, endPos)
+            end
         end)
     end, 100)
 end
@@ -54,5 +64,6 @@ function entity:StartZipLine(startPos, endPos)
         self:enableoffhandweapons()
         self:freezecontrols(false)
         ent:delete()
+        self.use_of_zipline = 0
     end, ms(delay))
 end
