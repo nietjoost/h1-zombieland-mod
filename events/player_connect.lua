@@ -10,7 +10,6 @@ function PlayerConnectedOnce(player)
         table.insert(zombies, player)
         player.type = "zombie"
         player.money = 50
-        player:ChangeTeam("axis")
     end
 
     -- First time player message
@@ -18,6 +17,15 @@ function PlayerConnectedOnce(player)
         player:PlayerMessage("^4Welcome to ^1RooieRonnie's ^6Zombieland!")
         player:PlayerMessage("^5Creaded by ^2Joost de Niet!")
     end)
+end
+
+function has_value (tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+    return false
 end
 
 -- [[ PLAYER CONNECTED ]] --

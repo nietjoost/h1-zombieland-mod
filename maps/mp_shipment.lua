@@ -20,7 +20,7 @@ map.below_map_tp = vector:new(706.50140380859, -573.70373535156, 376.125)
 
 -- [[ BUILD instant ]] --
 function PreBuildMap()
-    SpawnShop(vector:new(-701, -616, 190), "compass_objpoint_airstrike")
+    SpawnShop(vector:new(-701, -616, 190), vector:new(0, 0, 0), "compass_objpoint_airstrike")
     SpawnZipLineBothWays(vector:new(-507, 551, 192), vector:new(172, 220, 408))
     SpawnBoost(vector:new(-363, -102, 192), 20)
     SpawnBoost(vector:new(348, 233, 192), 20)

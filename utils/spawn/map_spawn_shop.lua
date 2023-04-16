@@ -1,5 +1,5 @@
 -- [[ Spawn a shop model with UI shader ]] --
-function SpawnShop(position, shader)
+function SpawnShop(position, angle, shader)
     -- Set icon location
     local iconhud = game:newhudelem()
     iconhud:setshader(shader, 10, 10)
@@ -14,11 +14,12 @@ function SpawnShop(position, shader)
     -- Set shop location
     local box = game:spawn("script_model", position)
     box:setmodel("com_plasticcase_beige_big")
+    box.angles = box.angles + angle
     box:show()
 
     local laptop = game:spawn("script_model", position + vector:new(0, 0, 30))
     laptop:setmodel("laptop_toughbook_01_open")
-    laptop.angles = laptop.angles + vector:new(0, 90, 0)
+    laptop.angles = laptop.angles + vector:new(0, 90, 0) + angle
     laptop:show()
     laptop:makeusable()
     laptop:sethintstring("Press ^3[{+activate}]^7 to buy Air Support ^7[COST: ^29000^7]")

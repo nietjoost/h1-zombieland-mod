@@ -28,6 +28,10 @@ end
 
 -- [[ Build map: called later for lag purpose ]] --
 function BuildMap()
+    for flagCount = 1, #map.posFlag do
+        SpawnFlag(map.posFlag[flagCount])
+    end
+
     return true
 end
 

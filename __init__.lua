@@ -13,6 +13,7 @@ end
 players = {}
 survivors = {}
 zombies = {}
+megazombies = {}
 config = {}
 config.started = false
 config.enough_people = true
@@ -50,6 +51,7 @@ require("events/game_logic")
 require("events/broadcaster")
 require("events/player_killed")
 require("events/player_connected_watch_events")
+require("events/mega_zombie")
 build = require("maps/mp_main")
 build.main()
 
@@ -89,6 +91,7 @@ game:setdynamicdvar("scr_killstreak_kills_heli", 1000)
 level:onnotify("connected", PlayerConnectedOnce)
 level:onnotify("connected", PlayerConnected)
 level:onnotify("connected", PlayerConnectedWatchEvents)
+level:onnotify("connected", PlayerConnectedMegaZombie)
 level:onnotify("connected", PlyerDisconnected)
 level:onnotify("connected", MoneyConnected)
 level:onnotify("connected", ShopConnected)
@@ -96,7 +99,7 @@ level:onnotify("connected", ShopConnected)
 -- [[ DEBUG ]] --
 game:oninterval(function()
     for _, debug_player in ipairs(players) do
-        --print(debug_player.origin.x .. ", " .. debug_player.origin.y .. ", " .. debug_player.origin.z)
+        print("vector:new(" .. debug_player.origin.x .. ", " .. debug_player.origin.y .. ", " .. debug_player.origin.z .. ")")
     end
     --print(game:getdvar("mapname"))
-end, 100)
+end, 400)
