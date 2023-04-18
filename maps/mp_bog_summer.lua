@@ -1,12 +1,11 @@
 -- [[ MAP: mp_bog_summer (bog summer) ]] --
 
-
+-- [[ Map config settings ]] --
 map = {
     primary = "h1_ak74u_mp_a#silencer_f#kin_emblem80_camo340",
     secondary = "h1_deserteagle55_mp_a#none_f#base_emblem80",
     knife = "h1_meleefeb3_mp_a#none_f#base",
 }
-
 
 map.posFlag = { 
     vector:new(6047, 1799, 9),
@@ -17,7 +16,6 @@ map.posFlag = {
     vector:new(3728, -987, -12),
 }
 
-
 map.posTP = {
     vector:new(6408, 27, 49),
     vector:new(1127, 213, 258),
@@ -27,10 +25,9 @@ map.posTP = {
     vector:new(4092, 430, -5),
 }
 
-
 map.below_map_tp = vector:new(6047, 1799, 9)
 
-
+-- [[ Build map: called later for lag purpose ]] --
 function BuildMap()
     SpawnFlag(map.posFlag[1])
     SpawnFlag(map.posFlag[2])

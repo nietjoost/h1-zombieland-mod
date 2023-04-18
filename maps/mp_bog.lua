@@ -1,12 +1,11 @@
--- [[ MAP: mp_bog (bog) ]] --
+-- [[ MAP: mp_bog_summer (bog summer) ]] --
 
-
+-- [[ Map config settings ]] --
 map = {
     primary = "h1_ak74u_mp_a#silencer_f#kin_emblem80_camo340",
     secondary = "h1_deserteagle55_mp_a#none_f#base_emblem80",
     knife = "h1_meleefeb3_mp_a#none_f#base",
 }
-
 
 map.posFlag = { 
     vector:new(6047, 1799, 9),
@@ -17,7 +16,6 @@ map.posFlag = {
     vector:new(3728, -987, -12),
 }
 
-
 map.posTP = {
     vector:new(6408, 27, 49),
     vector:new(1127, 213, 258),
@@ -27,10 +25,9 @@ map.posTP = {
     vector:new(4092, 430, -5),
 }
 
-
 map.below_map_tp = vector:new(6047, 1799, 9)
 
-
+-- [[ Build map: called later for lag purpose ]] --
 function BuildMap()
     SpawnFlag(map.posFlag[1])
     SpawnFlag(map.posFlag[2])
@@ -46,15 +43,15 @@ function BuildMap()
     SpawnRamp(vector:new(8618, 1706, 593), vector:new(8559, 1945, 816))
     SpawnRamp(vector:new(8736, 1086, 587), vector:new(8797, 852, 760))
 
-    SpawnWall(vector:new(8270, 2268, 857), vector:new(8118, 2823, 931))
+    SpawnWall(vector:new(8270., 2268, 857), vector:new(8118, 2823, 931))
     SpawnWall(vector:new(8119, 2827, 915), vector:new(8658, 2968, 879))
     SpawnWall(vector:new(8918, 892, 739), vector:new(9057, 406, 796))
 
 
     -- Outside middle map
-    SpawnWall(vector:new(3413.2922363281, -845.32153320312, -25), vector:new(3473, -909, 55))
-    SpawnWall(vector:new(4169.796875, -685.10382080078, -39), vector:new(4392, -1532, 99))
-    SpawnWall(vector:new(4392.5434570312, -1532.2570800781, 99), vector:new(3492, -932, -28))
+    SpawnWall(vector:new(3413, -845, -25), vector:new(3473, -909, 55))
+    SpawnWall(vector:new(4169, -685, -39), vector:new(4392, -1532, 99))
+    SpawnWall(vector:new(4392, -1532, 99), vector:new(3492, -932, -28))
 
 
     -- Outside spawn zombies
