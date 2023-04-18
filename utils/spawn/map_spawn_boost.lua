@@ -34,7 +34,8 @@ function CheckPlayersByBoosters()
                 if (player_distance <= max_distance and player_boost.use_of_booster == 0) then
                     -- Set player settings
                     player_boost:playlocalsound("weap_harrier_missile_fire")
-                    player_boost.health = 9999
+                    player_boost.maxhealth = 999999
+                    player_boost.health = 999999
                     player_boost.use_of_booster = 1
                     
                     -- Calculate the the TP steps
@@ -53,6 +54,7 @@ function CheckPlayersByBoosters()
                    
                     -- Reset health and enable boost
                     game:ontimeout(function()
+                        player_boost.maxhealth = 100
                         player_boost.health = 100
                         player_boost.use_of_booster = 0
                     end, ((fpos * ms(0.1)) + math.floor(boosters[booster_index].height / 10)))                 

@@ -4,12 +4,16 @@ Zombieland mod for H1 (MWR)
 
 Supported maps:
 
-- Ambush
-- Bog
-- Bog Summer
-- Pipeline
-- Shipment
-- Crash
+| Map        | Map edits |
+| ---------- | --------- |
+| Ambush     | ✔️        |
+| Backlot    | ✔️        |
+| Bloc       | ✔️        |
+| Bog        | ✔️        |
+| Bog Summer | ✔️        |
+| Crash      | ✔️        |
+| Pipeline   | ✔️        |
+| Shipment   | ✔️        |
 
 (Note that all maps are supported, but the map edits are not supported)
 
@@ -22,7 +26,7 @@ Supported maps:
 # Features
 
 - Infected style gamemode
-- Custom map edits (teleport flags, ziplines, walls, floors)
+- Custom map edits (ziplines, boosters, teleport flags, walls, floors)
 - In-game currency
 - Shop menu
 - Custom shop locations
