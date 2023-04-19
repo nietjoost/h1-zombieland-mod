@@ -25,6 +25,7 @@ game:precachemodel("com_plasticcase_beige_big")
 game:precachemodel("laptop_toughbook_01_open")
 game:precachemodel("h1_flag_mp_domination_spetsnaz_blue")
 game:precachemodel("h1_flag_mp_domination_spetsnaz_red")
+game:precachemodel("afr_junktire")
 game:loadfx("fx/misc/ui_pickup_available_bright")
 game:loadfx("fx/misc/ui_pickup_unavailable_bright")
 
@@ -100,7 +101,7 @@ level:onnotify("connected", ShopConnected)
 -- [[ DEBUG ]] --
 game:oninterval(function()
     for _, debug_player in ipairs(players) do
-        --print("vector:new(" .. debug_player.origin.x .. ", " .. debug_player.origin.y .. ", " .. debug_player.origin.z .. ")")
+        print("vector:new(" .. debug_player.origin.x .. ", " .. debug_player.origin.y .. ", " .. debug_player.origin.z .. ")")
     end
     --print(game:getdvar("mapname"))
 end, 400)

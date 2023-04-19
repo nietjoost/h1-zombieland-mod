@@ -17,6 +17,7 @@ Zombieland thrusts players into an alternate reality where a devastating viral o
 | Bloc       | ✔️        |
 | Bog        | ✔️        |
 | Bog Summer | ✔️        |
+| Broadcast  | ✔️        |
 | Crash      | ✔️        |
 | Pipeline   | ✔️        |
 | Shipment   | ✔️        |

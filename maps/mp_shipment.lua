@@ -13,7 +13,7 @@ map.posFlag = {
 map.posTP = {
 }
 
-map.below_map_tp = vector:new(706.50140380859, -573.70373535156, 376.125)
+map.below_map_tp = vector:new(706, -573, 376)
 
 -- [[ BUILD instant ]] --
 function PreBuildMap()
