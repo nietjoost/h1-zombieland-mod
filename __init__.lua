@@ -100,7 +100,7 @@ level:onnotify("connected", ShopConnected)
 -- [[ DEBUG ]] --
 game:oninterval(function()
     for _, debug_player in ipairs(players) do
-        print("vector:new(" .. debug_player.origin.x .. ", " .. debug_player.origin.y .. ", " .. debug_player.origin.z .. ")")
+        --print("vector:new(" .. debug_player.origin.x .. ", " .. debug_player.origin.y .. ", " .. debug_player.origin.z .. ")")
     end
     --print(game:getdvar("mapname"))
 end, 400)

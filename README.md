@@ -1,6 +1,8 @@
 # h1-zombieland-mod
 
-Zombieland mod for H1 (MWR)
+<p align="center">
+    <img src="assets/github/banner.png?raw=true" />
+</p>
 
 Call of Duty: Modern Warfare Remastered Zombieland by RooieRonnie is an exhilarating and spine-chilling mod for the critically acclaimed Call of Duty: Modern Warfare Remastered. This unique modification transforms the traditional military-based first-person shooter experience into a heart-pounding and adrenaline-pumping survival horror adventure.
 
