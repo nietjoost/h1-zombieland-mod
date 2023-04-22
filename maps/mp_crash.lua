@@ -25,6 +25,20 @@ map.posTP = {
 
 map.below_map_tp = vector:new(-711, 2267, 243)
 
+-- [[ BUILD instant ]] --
+function PreBuildMap()
+    -- Spawn ziplines
+    SpawnZipLineBothWays(vector:new(-560, 1485, 412), vector:new(-2777, 2499, 860))
+    SpawnZipLineBothWays(vector:new(-2665, 4644, 808), vector:new(-2185, 4632, 806))
+    SpawnZipLineBothWays(vector:new(-1656, 4300, 806), vector:new(-859, 3850, 818))
+    SpawnZipLineBothWays(vector:new(-2584, 6089, 714), vector:new(-2178, 4803, 806))
+    SpawnZipLineBothWays(vector:new(-2848, 3575, 810), vector:new(-2844, 3191, 860))
+    SpawnZipLineBothWays(vector:new(-179, 3514, 736), vector:new(1502, 715, 580))
+
+    -- Spawn shop
+    SpawnShop(vector:new(-2595, 6734, 714), vector:new(0, 180, 0), "compass_objpoint_airstrike")
+end
+
 -- [[ Build map: called later for lag purpose ]] --
 function BuildMap()
     SpawnFlag(map.posFlag[1])
@@ -32,8 +46,6 @@ function BuildMap()
     SpawnFlag(map.posFlag[3])
     SpawnFlag(map.posFlag[4])
     SpawnFlag(map.posFlag[5])
-
-    SpawnContainer(vector:new(-2495, 423, 764))
 
     return true
 end
