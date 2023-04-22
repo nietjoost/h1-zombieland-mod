@@ -1,7 +1,3 @@
--- [[ PRECACHE ]] --
-game:precachemodel("h1_shipping_container_03_red_closed")
-
-
 -- [[ MAP EDIT: functions ]] --
 local GetContainerCollision = function ()
     local ent = game:getent("patchclip_player_128_128_128", "targetname")
