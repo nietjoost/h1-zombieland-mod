@@ -22,6 +22,7 @@ Zombieland thrusts players into an alternate reality where a devastating viral o
 | Countdown  | ✔️        |
 | Crash      | ✔️        |
 | Creek      | ✔️        |
+| Crossfire  | ✔️        |
 | Pipeline   | ✔️        |
 | Shipment   | ✔️        |
 

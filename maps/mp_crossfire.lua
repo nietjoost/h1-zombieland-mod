@@ -7,23 +7,45 @@ map = {
     knife = "h1_meleefeb3_mp_a#none_f#base",
 }
 
-map.posFlag = { 
-    
+map.posFlag = {
+    vector:new(3524, -4789, -131),
+    vector:new(6802, -7317, 494),
+    vector:new(7844, -8307, 644),
+    vector:new(10295, -5819, 89)
 }
 
 map.posTP = {
-    
+    vector:new(7767, -7335, 722),
+    vector:new(7813, -7473, 722),
+    vector:new(4249, -2947, 72),
+    vector:new(6482, -4356, 44)
 }
 
-map.below_map_tp = vector:new(706, -573, 376)
+map.below_map_tp = vector:new(8754, -2810, 715)
 
 -- [[ BUILD instant ]] --
 function PreBuildMap()
-    SpawnZipLineBothWays(vector:new(5179, -1013, 160), vector:new(4667, -1805, 307))
+    -- Spawn Zipline
     SpawnZipLineBothWays(vector:new(4484, -4717, 29), vector:new(3734, -3944, -7))
+    SpawnZipLineBothWays(vector:new(5774, -707, 245), vector:new(5754, -1805, 168))
+    SpawnZipLineBothWays(vector:new(6490, -4523, 42), vector:new(7243, -3783, 556))
+    SpawnZipLineBothWays(vector:new(7833, -3357, 556), vector:new(8535, -3087, 644))
+    SpawnZipLineBothWays(vector:new(8527, -2501, 644), vector:new(8090, -1814, 704))
+    SpawnZipLineBothWays(vector:new(8967, -2726, 644), vector:new(9493, -2736, 644))
+    SpawnZipLineBothWays(vector:new(7402, -1553, 704), vector:new(8059, 2871, 176))
+    SpawnZipLineBothWays(vector:new(8963, -3078, 644), vector:new(10511, -6184, 644))
+    SpawnZipLineBothWays(vector:new(7821, -7014, 722), vector:new(10408, -6910, 644))
+    SpawnZipLineBothWays(vector:new(6399, -6761, 494), vector:new(4573, -2992, -110))
+    SpawnZipLineBothWays(vector:new(6640, -6774, 494), vector:new(6660, -6060, 446))
 
-    SpawnBoost(vector:new(3497, -1083, 9), 40)
-    SpawnBoost(vector:new(4626, -3662, -142), 90)
+    -- Spawn booster
+    SpawnBoost(vector:new(6254, 494, 56), 20)
+
+    -- Spawn shop
+    SpawnShop(vector:new(10078, -2705, 640), vector:new(0, 90, 0), "compass_objpoint_airstrike")
+
+    -- Hint string
+    SpawnHintString(vector:new(5854, -614, 245), "^1Dont fall of the wall!")
 end
 
 -- [[ Build map: called later for lag purpose ]] --
@@ -32,6 +54,11 @@ function BuildMap()
         SpawnFlag(map.posFlag[flagCount])
     end
 
+    SpawnRamp(vector:new(5905, -195, 50), vector:new(5903, -244, 86))
+    SpawnRamp(vector:new(6247, 1074, 41), vector:new(6221, 1065, 61))
+    SpawnRamp(vector:new(5932, 757, 42), vector:new(5959, 764, 66))
+    SpawnRamp(vector:new(7004, -6166, 283), vector:new(7035, -6215, 329))
+    
     return true
 end
 
