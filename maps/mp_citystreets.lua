@@ -1,4 +1,4 @@
--- [[ MAP: mp_countdown (mp_countdown) ]] --
+-- [[ MAP: mp_citystreets (District) ]] --
 
 -- [[ Map config settings ]] --
 map = {
@@ -23,7 +23,7 @@ map.posTP = {
     vector:new(2875, 1206, -6)
 }
 
-map.below_map_tp = vector:new(133, 1309, 136)
+map.below_map_tp = vector:new(4029, 368, 0)
 
 -- [[ BUILD instant ]] --
 function PreBuildMap()
