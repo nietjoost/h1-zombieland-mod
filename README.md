@@ -10,24 +10,25 @@ Zombieland thrusts players into an alternate reality where a devastating viral o
 
 ## Supported maps:
 
-| Map        | Map edits |
-| ---------- | --------- |
-| Ambush     | ✔️        |
-| Backlot    | ✔️        |
-| Bloc       | ✔️        |
-| Bog        | ✔️        |
-| Bog Summer | ✔️        |
-| Broadcast  | ✔️        |
-| ChinaTown  | ✔️        |
-| Countdown  | ✔️        |
-| Crash      | ✔️        |
-| Creek      | ✔️        |
-| Crossfire  | ✔️        |
-| Daybreak   | ✔️        |
-| District   | ✔️        |
-| Downpour   | ✔️        |
-| Pipeline   | ✔️        |
-| Shipment   | ✔️        |
+| Map          | Map edits |
+| ------------ | --------- |
+| Ambush       | ✔️        |
+| Backlot      | ✔️        |
+| Bloc         | ✔️        |
+| Bog          | ✔️        |
+| Bog Summer   | ✔️        |
+| Broadcast    | ✔️        |
+| ChinaTown    | ✔️        |
+| Countdown    | ✔️        |
+| Crash        | ✔️        |
+| Crash Winter | ✔️        |
+| Creek        | ✔️        |
+| Crossfire    | ✔️        |
+| Daybreak     | ✔️        |
+| District     | ✔️        |
+| Downpour     | ✔️        |
+| Pipeline     | ✔️        |
+| Shipment     | ✔️        |
 
 (Note that all maps are supported, but the map edits are not supported)
 
