@@ -2,6 +2,9 @@ game:precachesound("US_1fc_sd_lastalive")
 
 -- [[ EVENTS: on player killed ]] --
 game:onplayerkilled(function(_self, inflictor, attacker, damage, mod, weapon, dir, hitloc, timeoffset, deathanimduration)
+    -- Refresh shop shader
+    SetShaderLocation()
+    
     if config.started == false then
         _self:ChangeTeam("allies")
         return

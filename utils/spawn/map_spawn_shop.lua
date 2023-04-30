@@ -1,15 +1,15 @@
+-- [[ Local settings ]]
+local refreshPosition = nil
+local refreshShader = nil
+
 -- [[ Spawn a shop model with UI shader ]] --
 function SpawnShop(position, angle, shader)
+    -- Set data
+    refreshPosition = position
+    refreshShader = shader
+
     -- Set icon location
-    local iconhud = game:newhudelem()
-    iconhud:setshader(shader, 10, 10)
-    iconhud.x = position.x
-    iconhud.y = position.y
-    iconhud.z = position.z + 40
-    iconhud.hidewhendead = true
-    iconhud.hidewheninmenu = true
-    iconhud:setwaypoint(false, true)
-    iconhud.alpha = 1
+    SetShaderLocation(refreshPosition, refreshShader)
 
     -- Set shop location
     local box = game:spawn("script_model", position)
@@ -36,4 +36,25 @@ function SpawnShop(position, angle, shader)
             player:iprintlnbold("^9You don't have enough money!");
         end
     end)
+end
+
+-- [[ Set UI shader ]] --
+function SetShaderLocation()
+    if refreshPosition == nil then
+        return
+    end
+
+    if iconhud ~= nil then
+        iconhud:destroy()
+    end
+
+    local iconhud = game:newhudelem()
+    iconhud:setshader(refreshShader, 10, 10)
+    iconhud.x = refreshPosition.x
+    iconhud.y = refreshPosition.y
+    iconhud.z = refreshPosition.z + 40
+    iconhud.hidewhendead = true
+    iconhud.hidewheninmenu = true
+    iconhud:setwaypoint(false, true)
+    iconhud.alpha = 1
 end
