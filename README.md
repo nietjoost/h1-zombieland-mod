@@ -31,6 +31,7 @@ Zombieland thrusts players into an alternate reality where a devastating viral o
 | Overgrown    | ✔️        |
 | Pipeline     | ✔️        |
 | Shipment     | ✔️        |
+| Showdown     | ✔️        |
 
 (Note that all maps are supported, but the map edits are not supported)
 
