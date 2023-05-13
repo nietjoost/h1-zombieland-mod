@@ -1,6 +1,4 @@
--- [[ LOADOUT ]] --
-
-
+-- [[ ZOMBIE LOADOUTS ]] --
 function entity:GiveZombieClass()
     self:clearperks()
     self:takeallweapons();
@@ -8,10 +6,26 @@ function entity:GiveZombieClass()
 
     game:ontimeout(function()
         self:switchtoweapon("h1_meleejun4_mp_a#none_f#base")
-    end, 5)
+    end, 100)
+
+    self:giveweapon("h1_claymore_mp")
+    self:disableweaponpickup()
+end
+
+function entity:GiveZombieClassClaymore()
+    self:clearperks()
+    self:takeallweapons();
+    self:giveweapon("h1_meleejun4_mp_a#none_f#base")
+
+    game:ontimeout(function()
+        self:switchtoweapon("h1_meleejun4_mp_a#none_f#base")
+    end, 100)
+
+    self:disableweaponpickup()
 end
 
 
+-- [[ PLAYER LOADOUTS ]] --
 function entity:GivePlayerClass()
     if map == nil then
         return

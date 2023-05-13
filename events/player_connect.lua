@@ -50,6 +50,8 @@ function PlayerConnected(player)
                 player:setplayerangles(player.savedAngle)
                 player:setorigin(player.savedPosistion)
                 player:iprintlnbold("^2You spawned at your tactical insertion")
+                player.savedAngle = nil
+                player.savedPosistion = nil
             end
             return
         elseif player.type == nil then
