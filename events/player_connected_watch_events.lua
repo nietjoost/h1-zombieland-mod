@@ -43,7 +43,7 @@ function entity:SpawnClaymore()
     -- Wait for players trigger
     tactical:onnotify("trigger", function(self)
         if self.type == "zombie" then
-            self:iprintlnbold("You cannot delete a tactical insertion!");
+            self:iprintlnbold("^1You cannot delete a tactical insertion!");
             return
         end
 
