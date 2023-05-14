@@ -6,7 +6,7 @@ function BuildSequence(selected_map)
 
     -- Not all maps has a prebuild map function
     if PreBuildMap ~=nil then 
-        PreBuildMap() 
+        PreBuildMap()
     end
 
     game:ontimeout(function()
@@ -21,6 +21,9 @@ function BuildSequence(selected_map)
                 CheckPlayersForBelowMap(selected_map.below_map_tp)
             end, 1000)
         end
+
+        -- Build Ziplines
+        BuildZiplines()
     end, 6000)
 end
 

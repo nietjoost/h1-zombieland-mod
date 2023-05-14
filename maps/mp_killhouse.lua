@@ -20,10 +20,10 @@ map.below_map_tp = vector:new(29, 1260, 225)
 -- [[ BUILD instant ]] --
 function PreBuildMap()
     -- Spawn ziplines
-    SpawnZipLineBothWays(vector:new(678, 558, 156), vector:new(437, -802, 167))
-    SpawnZipLineBothWays(vector:new(-3306, 340, 186), vector:new(276, -1149, 179))
-    SpawnZipLineBothWays(vector:new(-3656, 335, 186), vector:new(-3933, -853, 117))
-    SpawnZipLineBothWays(vector:new(-4207, -852, 115), vector:new(738, 2268, 156))
+    AddZipLine(vector:new(678, 558, 156), vector:new(437, -802, 167))
+    AddZipLine(vector:new(-3306, 340, 186), vector:new(276, -1149, 179))
+    AddZipLine(vector:new(-3656, 335, 186), vector:new(-3933, -853, 117))
+    AddZipLine(vector:new(-4207, -852, 115), vector:new(738, 2268, 156))
 
     -- Spawn shop
     SpawnShop(vector:new(1709, -1068, 105), vector:new(0, 90, 0), "compass_objpoint_airstrike")

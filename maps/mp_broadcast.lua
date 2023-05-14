@@ -30,11 +30,11 @@ map.below_map_tp = vector:new(133, 1309, 136)
 -- [[ BUILD instant ]] --
 function PreBuildMap()
     -- Spawn ziplines
-    SpawnZipLineBothWays(vector:new(-1541, 879, 144), vector:new(-1333, 2026, 107))
-    SpawnZipLineBothWays(vector:new(-699, 2687, 109), vector:new(-1062, 3266, 146))
-    SpawnZipLineBothWays(vector:new(-3486, 2510, -62), vector:new(-2916, 1209, 240))
-    SpawnZipLineBothWays(vector:new(-345, 871, 136), vector:new(-1286, -708, 162))
-    SpawnZipLineBothWays(vector:new(-1093, 4179, 10), vector:new(660, -1224, -31))
+    AddZipLine(vector:new(-1541, 879, 144), vector:new(-1333, 2026, 107))
+    AddZipLine(vector:new(-699, 2687, 109), vector:new(-1062, 3266, 146))
+    AddZipLine(vector:new(-3486, 2510, -62), vector:new(-2916, 1209, 240))
+    AddZipLine(vector:new(-345, 871, 136), vector:new(-1286, -708, 162))
+    AddZipLine(vector:new(-1093, 4179, 10), vector:new(660, -1224, -31))
 
     -- Spawn boosters
     SpawnBoost(vector:new(-524, 2605, -40), 30)

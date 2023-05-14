@@ -18,14 +18,14 @@ map.below_map_tp = vector:new(706, -573, 376)
 -- [[ BUILD instant ]] --
 function PreBuildMap()
     -- Spawn ziplines
-    SpawnZipLineBothWays(vector:new(-507, 551, 192), vector:new(172, 220, 408))
-    SpawnZipLineBothWays(vector:new(1366, 870, 195), vector:new(598, 615, 253))
-    SpawnZipLineBothWays(vector:new(2334, 907, 192), vector:new(1554, 556, 390))
-    SpawnZipLineBothWays(vector:new(2425, 4231, 240), vector:new(384, 6553, 192))
-    SpawnZipLineBothWays(vector:new(-692, 109, 299), vector:new(-1218, 250, 322))
-    SpawnZipLineBothWays(vector:new(-1534, 619, 339), vector:new(-1970, 1845, 192))
-    SpawnZipLineBothWays(vector:new(-1525, 2830, 192), vector:new(4829, 2555, 240))
-    SpawnZipLineBothWays(vector:new(0, -528, 299), vector:new(-628, -2217, 1515))
+    AddZipLine(vector:new(-507, 551, 192), vector:new(172, 220, 408))
+    AddZipLine(vector:new(1366, 870, 195), vector:new(598, 615, 253))
+    AddZipLine(vector:new(2334, 907, 192), vector:new(1554, 556, 390))
+    AddZipLine(vector:new(2425, 4231, 240), vector:new(384, 6553, 192))
+    AddZipLine(vector:new(-692, 109, 299), vector:new(-1218, 250, 322))
+    AddZipLine(vector:new(-1534, 619, 339), vector:new(-1970, 1845, 192))
+    AddZipLine(vector:new(-1525, 2830, 192), vector:new(4829, 2555, 240))
+    AddZipLine(vector:new(0, -528, 299), vector:new(-628, -2217, 1515))
 
     -- Spawn boost
     SpawnBoost(vector:new(-363, -102, 192), 20)
@@ -39,9 +39,9 @@ end
 function BuildMap()
     
     -- Spawn ziplines
-    SpawnZipLineBothWays(vector:new(1592, -2667, 1515), vector:new(1574, -595, 416))
-    SpawnZipLineBothWays(vector:new(28, -2925, 1515), vector:new(626, -3114, 1515))
-    SpawnZipLineBothWays(vector:new(2876, -4142, 1515), vector:new(2205, -3819, 1515))
+    AddZipLine(vector:new(1592, -2667, 1515), vector:new(1574, -595, 416))
+    AddZipLine(vector:new(28, -2925, 1515), vector:new(626, -3114, 1515))
+    AddZipLine(vector:new(2876, -4142, 1515), vector:new(2205, -3819, 1515))
 
     return true
 end

@@ -30,11 +30,11 @@ map.below_map_tp = vector:new(133, 1309, 136)
 -- [[ BUILD instant ]] --
 function PreBuildMap()
     -- Spawn ziplines
-    SpawnZipLineBothWays(vector:new(-523, 1812, 111), vector:new(431, 2839, 241));
-    SpawnZipLineBothWays(vector:new(-729, 3511, 312), vector:new(260,2976,227));
-    SpawnZipLineBothWays(vector:new(747,3024,224), vector:new(738,3822,246));
-    SpawnZipLineBothWays(vector:new(2200,2127,309), vector:new(1107,2740,229));
-    SpawnZipLineBothWays(vector:new(1717, 3225, 241), vector:new(1106, 5202, 241));
+    AddZipLine(vector:new(-523, 1812, 111), vector:new(431, 2839, 241));
+    AddZipLine(vector:new(-729, 3511, 312), vector:new(260,2976,227));
+    AddZipLine(vector:new(747,3024,224), vector:new(738,3822,246));
+    AddZipLine(vector:new(2200,2127,309), vector:new(1107,2740,229));
+    AddZipLine(vector:new(1717, 3225, 241), vector:new(1106, 5202, 241));
 
     -- Spawn boosters
     SpawnBoost(vector:new(2478, 2210, -17), 40)
@@ -50,9 +50,9 @@ function BuildMap()
         SpawnFlag(map.posFlag[flagCount])
     end
 
-    SpawnZipLineBothWays(vector:new(1163,3964,254), vector:new(2140,3383,254));
-    SpawnZipLineBothWays(vector:new(2611, 2412, 128), vector:new(3513, 3651, 192))
-    SpawnZipLineBothWays(vector:new(1598, 5076, 71), vector:new(799, 5705, 241))
+    AddZipLine(vector:new(1163,3964,254), vector:new(2140,3383,254));
+    AddZipLine(vector:new(2611, 2412, 128), vector:new(3513, 3651, 192))
+    AddZipLine(vector:new(1598, 5076, 71), vector:new(799, 5705, 241))
 
     return true
 end

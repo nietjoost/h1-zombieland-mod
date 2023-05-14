@@ -1,11 +1,21 @@
-function SpawnZipLineBothWays(startPos, endPos)
-    game:ontimeout(function()
-        SpawnZipLine(startPos, endPos)
-    end, 2000)
+-- [[ Spawn Zipline logic ]] --
+ziplinesFirstPos = {}
+ziplinesSecondPos = {}
 
-    game:ontimeout(function()
-        SpawnZipLine(endPos, startPos)
-    end, 4000)
+function AddZipLine(startPos, endPos)
+    table.insert(ziplinesFirstPos, startPos)
+    table.insert(ziplinesSecondPos, endPos)
+end
+
+function BuildZiplines()
+    delay = 300
+    for zipline_index, zipline in ipairs(ziplinesFirstPos) do
+        game:ontimeout(function()
+            SpawnZipLine(ziplinesFirstPos[zipline_index], ziplinesSecondPos[zipline_index])
+            SpawnZipLine(ziplinesSecondPos[zipline_index], ziplinesFirstPos[zipline_index])
+        end, 300)
+        delay = delay + 300
+    end
 end
 
 function SpawnZipLine(startPos, endPos)
@@ -40,11 +50,6 @@ end
 
 -- [[ Link a player to a ZipLine ]] --
 function entity:StartZipLine(startPos, endPos)
-    -- Prepare player for the zipline (optional)
-    --self:disableweapons()
-    --self:disableoffhandweapons()
-    --self:freezecontrols(true)
-
     -- Set route
     local delay = 1.75
     local zoomheight = 3500
