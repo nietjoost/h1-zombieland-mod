@@ -22,6 +22,7 @@ function ZombieSpawnLogic(player)
     player.type = "zombie"
     player.money = 50
     player:GiveZombieClass()
+    player:CreateMoneyHUD()
 end
 
 -- [[ SURVIVOR FIRST LOGIC ]] --
@@ -31,6 +32,7 @@ function SurvivorSpawnLogic(player)
     player:freezecontrols(false)
     player:GivePlayerClass()
     player:GivePlayerClass()
+    player:CreateMoneyHUD()
 end
 
 function entity:is_bot()

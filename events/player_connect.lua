@@ -55,7 +55,6 @@ function PlayerConnected(player)
 
     -- HANDLE spawn after DEAD
     player:onnotify("spawned_player", function()
-        print(player.pers["team"])
         if player.type == "zombie" then
             ZombieSpawnLogic(player)
             if player.savedPosistion ~= nil then
