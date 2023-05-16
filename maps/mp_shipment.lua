@@ -28,8 +28,8 @@ function PreBuildMap()
     AddZipLine(vector:new(0, -528, 299), vector:new(-628, -2217, 1515))
 
     -- Spawn boost
-    SpawnBoost(vector:new(-363, -102, 192), 20)
-    SpawnBoost(vector:new(348, 233, 192), 20)
+    AddBooster(vector:new(-363, -102, 192), 20)
+    AddBooster(vector:new(348, 233, 192), 20)
 
     -- Spawn shop
     SpawnShop(vector:new(2658, -4698, 1515), vector:new(0, 0, 0), "compass_objpoint_airstrike")

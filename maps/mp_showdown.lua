@@ -34,10 +34,10 @@ end
 function BuildMap()
     
     -- Spawn booster
-    SpawnBoost(vector:new(2307, -801, 280), 10)
-    SpawnBoost(vector:new(2413, -694, 280), 10)
-    SpawnBoost(vector:new(2410, 216, 280), 10)
-    SpawnBoost(vector:new(2409, 1093, 280), 10)
+    AddBooster(vector:new(2307, -801, 280), 10)
+    AddBooster(vector:new(2413, -694, 280), 10)
+    AddBooster(vector:new(2410, 216, 280), 10)
+    AddBooster(vector:new(2409, 1093, 280), 10)
 
     -- Spawn shop
     SpawnShop(vector:new(-4380, -222, 1400), vector:new(0, -90, 0), "compass_objpoint_airstrike")

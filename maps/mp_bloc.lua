@@ -35,7 +35,7 @@ function PreBuildMap()
     AddZipLine(vector:new(3854, -7108, 832), vector:new(3037, -6247, 1296))
 
     -- Boosters
-    SpawnBoost(vector:new(850, -5138, 47), 30)
+    AddBooster(vector:new(850, -5138, 47), 30)
 
     -- Spawn bounce
     SpawnRamp(vector:new(1986, -6516, 832), vector:new(1986, -6546, 879))

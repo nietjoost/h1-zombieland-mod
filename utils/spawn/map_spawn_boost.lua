@@ -1,16 +1,35 @@
+-- [[ Spawn booster logic ]] --
+boostersFirstPos = {}
+boostersHeight = {}
 boosters = {}
 
+function AddBooster(startPos, height)
+    table.insert(boostersFirstPos, startPos)
+    table.insert(boostersHeight, height)
+end
+
+function BuildBoosters()
+    delay = 300
+    for booster_index, booster in ipairs(boostersFirstPos) do
+        game:ontimeout(function()
+            SpawnBooster(boostersFirstPos[booster_index], boostersHeight[booster_index])
+            SpawnBooster(boostersFirstPos[booster_index], boostersHeight[booster_index])
+        end, 300)
+        delay = delay + 300
+    end
+end
+
 -- [[ Spawn boosters FX and model ]] --
-function SpawnBoost(startPos, height)
+function SpawnBooster(startPos, height)
     -- Spawn effect
     local boostEffect = game:loadfx("fx/misc/ui_pickup_available_bright")
     game:playfx(boostEffect, startPos)
 
-    -- Model
-    local tire = game:spawn("script_model", startPos + vector:new(0, 0, 2))
-    tire:setmodel("afr_junktire")
-    tire.angles = vector:new(0, 0, 90)
-    tire:show()
+    -- Model (DISABLED, NOT ALL MAPS SUPPORT THIS MODEL)
+    --local tire = game:spawn("script_model", startPos + vector:new(0, 0, 2))
+    --tire:setmodel("afr_junktire")
+    --tire.angles = vector:new(0, 0, 90)
+    --tire:show()
 
     -- Add and check booster
     local boost = {}
