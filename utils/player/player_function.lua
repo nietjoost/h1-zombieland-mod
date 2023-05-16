@@ -17,6 +17,21 @@ function entity:ChangeTeam(team)
     self:notify( "end_respawn" )
 end
 
+-- [[ ZOMBIE FIRST LOGIC ]] --
+function ZombieSpawnLogic(player)
+    player.type = "zombie"
+    player.money = 50
+    player:GiveZombieClass()
+end
+
+-- [[ SURVIVOR FIRST LOGIC ]] --
+function SurvivorSpawnLogic(player)
+    player.type = "survivor"
+    player.money = 500
+    player:freezecontrols(false)
+    player:GivePlayerClass()
+    player:GivePlayerClass()
+end
 
 function entity:is_bot()
     if (starts_with(self:getguid(), "bot")) then

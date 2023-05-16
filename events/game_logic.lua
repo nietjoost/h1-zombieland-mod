@@ -10,8 +10,8 @@ function chose_zombies()
       zombie2 = nil
       while(zombie1 == zombie2)
       do
-         zombie1 = players[math.random(1, #players)]
-         zombie2 = players[math.random(1, #players)]
+         zombie1 = survivors[math.random(1, #survivors)]
+         zombie2 = survivors[math.random(1, #survivors)]
          zombie1:ChangeTeam("axis")
          zombie2:ChangeTeam("axis")
       end
@@ -19,12 +19,15 @@ function chose_zombies()
    end
 
    -- Chose only one infected
-   zombie1 = players[math.random(1, #players)]
+   zombie1 = survivors[math.random(1, #survivors)]
    zombie1:ChangeTeam("axis")
 end
 
 -- [[ Start the gamemode [show start message, countdown, chose infected] ]]--
 function start_zombieland(start_zombieland_timer)
+   -- SET enough people (prevents for double start_zombieland)
+   config.enough_people = true
+
    game:ontimeout(function()
       
       -- Start countdown message
