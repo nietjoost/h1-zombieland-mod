@@ -35,7 +35,7 @@ function PlayerConnectedOnce(player)
                         game:ontimeout(function()
                             player:CreateTopMessage("Press [{+actionslot 2}] to open the shop!", vector:new(0.86, 0.81, 0.34))
                         end, 9000)
-                    end, 10000)   
+                    end, 10000)
                 end
             end, 500)
 
@@ -55,6 +55,7 @@ function PlayerConnected(player)
 
     -- HANDLE spawn after DEAD
     player:onnotify("spawned_player", function()
+        print(player.pers["team"])
         if player.type == "zombie" then
             ZombieSpawnLogic(player)
             if player.savedPosistion ~= nil then
@@ -67,6 +68,13 @@ function PlayerConnected(player)
             end
         elseif player.type == nil then
             SurvivorSpawnLogic(player)
+        end
+
+        if config.started == true and player.pers["team"] == "allies" then
+            game:ontimeout(function()
+                ZombieSpawnLogic(player)
+                player:ChangeTeam("axis")
+            end, 100)
         end
     end)
 end
