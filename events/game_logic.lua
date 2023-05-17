@@ -83,6 +83,19 @@ function CheckForPlayers()
     end
 end
 
+-- [[ Game winning TIME LIMIT check ]] --
+function TimeLimitCheck()
+   game:ontimeout(function()
+      if (config.started == true and config.enough_people == true) then
+         AllPlayerMessage("The survivors have won!", vector:new(0, 1, 0))
+
+         game:ontimeout(function()
+            level:scriptcall("maps/mp/gametypes/_gamelogic", "forceend")
+         end, 200)
+      end
+   end, gameTime * ms(60) - 1)
+end
 
 -- [[ START THE GAMEMODE - event ]]--
 start_zombieland()
+TimeLimitCheck()

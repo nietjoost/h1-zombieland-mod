@@ -10,6 +10,7 @@ if game:getdvar("g_gametype") ~= "war" then
 end
 
 -- [[ GLOBAL VARIABLES ]] --
+gameTime = 15
 players = {}
 survivors = {}
 zombies = {}
@@ -50,12 +51,14 @@ require("events/check_flag_tp")
 require("events/check_below_map_tp")
 require("events/check_zipline")
 require("events/player_connect")
-require("events/player_disconnect")
 require("events/game_logic")
 require("events/broadcaster")
 require("events/player_killed")
 require("events/player_connected_watch_events")
 require("events/mega_zombie")
+require("events/timed_receivables")
+require("events/player_disconnect")
+
 build = require("maps/mp_main")
 build.main()
 
@@ -67,7 +70,7 @@ game:executecommand("set jump_slowdownEnable 0")
 game:executecommand("set pm_bouncing 1")
 game:executecommand("set pm_bouncingAllAngles 1")
 game:executecommand("set scr_war_scorelimit 150") 
-game:executecommand("set scr_war_timelimit 15")
+game:executecommand("set scr_war_timelimit " .. gameTime)
 game:executecommand("set pt_gameStartTimerLength 1")
 game:executecommand("set pt_pregameStartTimerLength 1")
 game:executecommand("set g_teamname_allies ^2Survivors")
