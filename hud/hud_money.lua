@@ -15,6 +15,9 @@ function entity:CreateMoneyHUD()
     self.hud_money.hidewheninmenu = true
     self.hud_money.glowalpha = 0.3
     self.hud_money.glowcolor = vector:new(0, 1, 0)
+    if self.type == "zombie" then
+        self.hud_money.glowcolor = vector:new(1, 0, 0)
+    end
     self.hud_money:settext("$" .. self.money)
 end
 
@@ -57,7 +60,10 @@ function entity:AnimateMoneyHUDBuy(local_money)
     self.hud_money_buy.font = "bigfixed"
     self.hud_money_buy.fontscale = 1.2
     self.hud_money_buy.glowalpha = 0.3
-    self.hud_money_buy.glowcolor = vector:new(1, 0, 0)
+    self.hud_money.glowcolor = vector:new(0, 1, 0)
+    if self.type == "zombie" then
+        self.hud_money.glowcolor = vector:new(1, 0, 0)
+    end
     self.hud_money_buy:settext("-$" .. local_money)
     self.hud_money_buy:moveovertime(2)
     self.hud_money_buy:fadeovertime(2)

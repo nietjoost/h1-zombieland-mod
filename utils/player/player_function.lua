@@ -21,6 +21,8 @@ end
 function ZombieSpawnLogic(player)
     player.type = "zombie"
     player.money = 50
+    
+    player:disableweaponpickup()
     player:GiveZombieClass()
     player:CreateMoneyHUD()
 end
