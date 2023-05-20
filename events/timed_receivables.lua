@@ -3,7 +3,7 @@ function TimedReceivables()
     game:oninterval(function()
         for _, player in ipairs(players) do
 
-            if game:scriptcall("maps/mp/_utility", "isreallyalive", player) == false then
+            if game:scriptcall("maps/mp/_utility", "isreallyalive", player) == 0 then
                 return
             end
 

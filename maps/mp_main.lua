@@ -23,9 +23,9 @@ function BuildSequence(selected_map)
         end
 
         -- Build Ziplines
-        BuildZiplines()
+        game:oninterval(function() BuildZiplines() end, 10000)
         -- Build boosters
-        game:oninterval(function() BuildBoosters() end, 10000)
+        game:oninterval(function() BuildBoosters() end, 20000)
     end, 6000)
 end
 

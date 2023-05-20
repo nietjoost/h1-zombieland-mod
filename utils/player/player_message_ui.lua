@@ -6,7 +6,7 @@ end
 
 function AllPlayerMessage(msg, color)
     for _, player in ipairs(players) do
-        if game:scriptcall("maps/mp/_utility", "isreallyalive", player) == false then
+        if game:scriptcall("maps/mp/_utility", "isreallyalive", player) == 0 then
             return
         end
         player:CreateTopMessage(msg, color)
@@ -16,7 +16,7 @@ end
 
 function AllPlayerNotifyMessage(msg, color)
     for _, player in ipairs(players) do
-        if game:scriptcall("maps/mp/_utility", "isreallyalive", player) == false then
+        if game:scriptcall("maps/mp/_utility", "isreallyalive", player) == 0 then
             return
         end
         player:CreateBottomMessage(msg, color)
@@ -26,7 +26,7 @@ end
 
 function AllPlayerNotifyMessageFast(msg, color)
     for _, player in ipairs(players) do
-        if game:scriptcall("maps/mp/_utility", "isreallyalive", player) == false then
+        if game:scriptcall("maps/mp/_utility", "isreallyalive", player) == 0 then
             return
         end
         player:CreateBottomMessageFast(msg, color)
