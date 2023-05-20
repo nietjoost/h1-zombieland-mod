@@ -11,3 +11,15 @@ function HandleMenu(player)
         player:scriptcall("maps/mp/gametypes/_menus", "setteam", "allies")
     end
 end
+
+-- [[ Get total players in team ]] --
+function GetTotalPlayerInTeam(team)
+    count = 0
+
+    for _, player in ipairs(players) do
+        if player.pers["team"] == team then
+            count = count + 1
+        end
+    end
+    return count
+end

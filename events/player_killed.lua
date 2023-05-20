@@ -58,9 +58,6 @@ end)
 -- [[ EVENT: Check for last alive event ]] --
 function CheckLastAlive()
     for aps_index, player_alive in ipairs(survivors) do
-        --level:scriptcall("maps/mp/_utility", "teamplayercardsplash", "callout_eliminated", attacker)
-        --player_alive:playlocalsound("US_1mc_kc_killconfirmed")
-
         if (#survivors == 1 and config.last_alive == false) then     
             config.last_alive = true
             level:scriptcall("maps/mp/_utility", "teamplayercardsplash", "callout_lastenemyalive", player_alive)
