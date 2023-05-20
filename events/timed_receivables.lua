@@ -2,6 +2,11 @@
 function TimedReceivables()
     game:oninterval(function()
         for _, player in ipairs(players) do
+
+            if game:scriptcall("maps/mp/_utility", "isreallyalive", player) == false then
+                return
+            end
+
             if config.started == true and player.type == "survivor" then
                 GivePlayerTimedMoney(player)
             end
