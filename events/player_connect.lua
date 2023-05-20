@@ -1,5 +1,8 @@
 -- [[ PLAYER CONNECTED ONCE ]] --
 function PlayerConnectedOnce(player)
+    -- LOG to server console
+    print("Player " .. player.name .. " joined the server!")
+
     -- INSERT player to player lists
     table.insert(players, player)
     player.use_of_booster = 0
