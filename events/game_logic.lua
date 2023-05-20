@@ -79,6 +79,7 @@ function CheckForPlayers()
 
       game:ontimeout(function()
          level:scriptcall("maps/mp/gametypes/_gamelogic", "forceend")
+         ChangeMap()
       end, 3000)
     end
 end
@@ -91,6 +92,7 @@ function TimeLimitCheck()
 
          game:ontimeout(function()
             level:scriptcall("maps/mp/gametypes/_gamelogic", "forceend")
+            ChangeMap()
          end, 200)
       end
    end, gameTime * ms(60) - 1)

@@ -33,6 +33,7 @@ game:loadfx("fx/misc/ui_pickup_unavailable_bright")
 
 -- [[ Require ]] --
 require("utils/utils")
+require("events/change_map")
 require("shop/shop_menu")
 require("hud/hud_money")
 require("hud/hud_message")
