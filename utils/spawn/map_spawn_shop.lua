@@ -1,5 +1,5 @@
 -- [[ Local settings ]]
-killstreak_cost = 100
+killstreak_cost = 4000
 
 local refreshPosition = nil
 local refreshShader = nil
