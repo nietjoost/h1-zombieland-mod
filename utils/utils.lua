@@ -23,3 +23,8 @@ function GetTotalPlayerInTeam(team)
     end
     return count
 end
+
+-- [[ String util ]] --
+function starts_with(String,Start)
+   return string.sub(String,1,string.len(Start))==Start
+end

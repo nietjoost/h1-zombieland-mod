@@ -1,7 +1,9 @@
 -- [[ PLAYER CONNECTED ONCE ]] --
 function PlayerConnectedOnce(player)
     -- LOG to server console
-    print("Player " .. player.name .. " joined the server!")
+    if player:is_bot() == false then
+        print("Player " .. player.name .. " joined the server!")
+    end
 
     -- INSERT player to player lists
     table.insert(players, player)

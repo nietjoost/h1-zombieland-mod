@@ -37,14 +37,6 @@ function SurvivorSpawnLogic(player)
     player:CreateMoneyHUD()
 end
 
-function entity:is_bot()
-    if (starts_with(self:getguid(), "bot")) then
-        return true
-    else
-        return false
-    end
-end
-
 
 -- [[ PLAYER: remove from given table ]] --
 function entity:RemovePlayerFromTable(remove_table)
@@ -52,5 +44,14 @@ function entity:RemovePlayerFromTable(remove_table)
         if table_player == player then
             table.remove(remove_table, table_index)
         end
+    end
+end
+
+-- [[ PLAYER: Check for bot ]] --
+function entity:is_bot()
+    if (starts_with(self:getguid(), "bot")) then
+        return true
+    else
+        return false
     end
 end
