@@ -20,12 +20,12 @@ end
 
 function GivePlayerTimedMoney(player)
     player:UpdateMoneyHUDKill()
-    player:iprintln("You received ^2$500 ^7for staying alive!")
+    player:PlayerMessage("You received ^2$500 ^7for staying alive!")
 end
 
 function GiveZombieTimed(player)
     player:UpdateMoneyHUDKill()
-    player:iprintln("You received ^2$50^7!")
+    player:PlayerMessage("You received ^2$50^7!")
 end
 
 -- [[ START THE INTERVAL RECEIVABLES - event ]]--

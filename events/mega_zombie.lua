@@ -1,9 +1,5 @@
 function PlayerConnectedMegaZombie(player)
-    player:notifyonplayercommand("enable_mega_zombie2", "+actionslot 4")
-    
-    --player:onnotify("enable_mega_zombie", function()
-        --game:executecommand("lui_open so_new_stars")
-    --end)
+    --player:notifyonplayercommand("enable_mega_zombie2", "+actionslot 4")
 
     player:onnotify("enable_mega_zombie2", function()
         -- Clear Mega Zombies List

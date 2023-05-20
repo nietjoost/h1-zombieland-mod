@@ -1,4 +1,6 @@
 -- [[ Local settings ]]
+killstreak_cost = 100
+
 local refreshPosition = nil
 local refreshShader = nil
 
@@ -22,7 +24,7 @@ function SpawnShop(position, angle, shader)
     laptop.angles = laptop.angles + vector:new(0, 90, 0) + angle
     laptop:show()
     laptop:makeusable()
-    laptop:sethintstring("Press ^3[{+activate}]^7 to buy Air Support ^7[COST: ^29000^7]")
+    laptop:sethintstring("Press ^3[{+activate}]^7 to buy Air Support ^7[COST: ^2" .. killstreak_cost .. "^7]")
 
     -- Wait for players trigger
     laptop:onnotify("trigger", function(player)
@@ -31,7 +33,11 @@ function SpawnShop(position, angle, shader)
             return
         end
 
-        if player.money >= 9000 then
+        if player.money >= killstreak_cost then
+            player:giveweapon("airstrike_mp")
+            player:setactionslot(4, "weapon", "airstrike_mp")
+            player:PlayerMessage("^2You have bought an airstrike!");
+            player:UpdateMoneyHUDBuy(killstreak_cost)
         else
             player:iprintlnbold("^9You don't have enough money!");
         end
