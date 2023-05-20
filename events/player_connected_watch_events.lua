@@ -43,9 +43,6 @@ function entity:SpawnClaymore()
     tactical:sethintstring("Press ^3[{+activate}]^7 to ^1destroy ^7the tactical insertion")
     self.tactical = tactical
 
-    --local tacticalEffect = game:loadfx("vfx/unique/vfx_marker_dom")
-    --local playtacticalEffect = game:playfx(tacticalEffect, self.origin)
-
     -- Wait for players trigger
     tactical:onnotify("trigger", function(self)
         if self.type == "zombie" then

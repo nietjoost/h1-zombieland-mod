@@ -97,5 +97,4 @@ function TimeLimitCheck()
 end
 
 -- [[ START THE GAMEMODE - event ]]--
-start_zombieland()
 TimeLimitCheck()
