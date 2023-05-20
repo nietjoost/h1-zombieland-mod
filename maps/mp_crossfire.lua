@@ -42,7 +42,7 @@ function PreBuildMap()
     AddBooster(vector:new(6254, 494, 56), 20)
 
     -- Spawn shop
-    SpawnShop(vector:new(10078, -2705, 640), vector:new(0, 90, 0), "compass_objpoint_airstrike")
+    SpawnShop(vector:new(10078, -2705, 640), vector:new(0, 90, 0))
 
     -- Hint string
     SpawnHintString(vector:new(5854, -614, 245), "^1Dont fall of the wall!")

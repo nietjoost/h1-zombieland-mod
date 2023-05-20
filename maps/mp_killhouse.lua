@@ -26,7 +26,7 @@ function PreBuildMap()
     AddZipLine(vector:new(-4207, -852, 115), vector:new(738, 2268, 156))
 
     -- Spawn shop
-    SpawnShop(vector:new(1709, -1068, 105), vector:new(0, 90, 0), "compass_objpoint_airstrike")
+    SpawnShop(vector:new(1709, -1068, 105), vector:new(0, 90, 0))
 end
 
 -- [[ Build map: called later for lag purpose ]] --

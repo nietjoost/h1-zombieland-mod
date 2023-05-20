@@ -40,7 +40,7 @@ function BuildMap()
     AddBooster(vector:new(2409, 1093, 280), 10)
 
     -- Spawn shop
-    SpawnShop(vector:new(-4380, -222, 1400), vector:new(0, -90, 0), "compass_objpoint_airstrike")
+    SpawnShop(vector:new(-4380, -222, 1400), vector:new(0, -90, 0))
 
     return true
 end

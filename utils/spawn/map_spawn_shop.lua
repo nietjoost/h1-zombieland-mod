@@ -1,17 +1,16 @@
 -- [[ Local settings ]]
 killstreak_cost = 4000
+refreshShader = "compass_objpoint_airstrike"
 
 local refreshPosition = nil
-local refreshShader = nil
 
 -- [[ Spawn a shop model with UI shader ]] --
-function SpawnShop(position, angle, shader)
+function SpawnShop(position, angle)
     -- Set data
     refreshPosition = position
-    refreshShader = shader
 
     -- Set icon location
-    SetShaderLocation(refreshPosition, refreshShader)
+    SetShaderLocation()
 
     -- Set shop location
     local box = game:spawn("script_model", position)

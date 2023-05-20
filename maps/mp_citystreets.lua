@@ -40,7 +40,7 @@ function PreBuildMap()
     AddBooster(vector:new(5366, -2845, -0), 30)
 
     -- Spawn shop
-    SpawnShop(vector:new(-1441, 3739, 657), vector:new(0, 180, 0), "compass_objpoint_airstrike")
+    SpawnShop(vector:new(-1441, 3739, 657), vector:new(0, 180, 0))
 end
 
 -- [[ Build map: called later for lag purpose ]] --
