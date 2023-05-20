@@ -17,6 +17,11 @@ end
 
 -- [[ Spawn Tactical Insertion for Player ]] --
 function entity:SpawnClaymore()
+    -- Check for only one
+    if self.savedPosistion ~= nil then
+        return
+    end
+
     -- Save posistion
     self.savedPosistion = self.origin
     self.savedAngle = self.angles
