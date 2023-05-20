@@ -36,7 +36,7 @@ function SpawnShop(position, angle, shader)
         if player.money >= killstreak_cost then
             player:giveweapon("airstrike_mp")
             player:setactionslot(4, "weapon", "airstrike_mp")
-            player:PlayerMessage("^2You have bought an airstrike!");
+            player:PlayerMessage("^2You bought an airstrike!");
             player:UpdateMoneyHUDBuy(killstreak_cost)
         else
             player:iprintlnbold("^9You don't have enough money!");
