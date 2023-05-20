@@ -17,7 +17,7 @@ zombies = {}
 megazombies = {}
 config = {}
 config.started = false
-config.enough_people = true
+config.enough_people = false
 config.last_alive = false
 
 -- [[ Pre cache ]] --
