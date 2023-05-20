@@ -26,5 +26,5 @@ maps = {
 function ChangeMap()
     game:ontimeout(function()
         game:executecommand("devmap " .. maps[math.random(1, #maps)])
-    end, 10000)
+    end, 20000)
 end
