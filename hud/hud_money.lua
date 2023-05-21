@@ -1,5 +1,9 @@
 -- [[ HUD: money create function ]]--
 function entity:CreateMoneyHUD()
+    if self:is_bot() == true then
+        return
+    end
+
     if self.hud_money ~= nil then
         self.hud_money:destroy()
     end
@@ -24,6 +28,10 @@ end
 
 -- [[ HUD: animate money function ]]--
 function entity:AnimateMoneyHUDKill(local_money)   
+    if self:is_bot() == true then
+        return
+    end
+
     if self.hud_money_extra ~= nil then
         self.hud_money_extra:destroy()
     end
@@ -54,7 +62,11 @@ function entity:AnimateMoneyHUDKill(local_money)
     end, 2000)
 end
 
-function entity:AnimateMoneyHUDBuy(local_money)   
+function entity:AnimateMoneyHUDBuy(local_money)
+    if self:is_bot() == true then
+        return
+    end
+
     if self.hud_money_buy ~= nil then
         self.hud_money_buy:destroy()
     end
@@ -84,6 +96,10 @@ end
 
 -- [[ HUD: update money function ]]--
 function entity:UpdateMoneyHUDKill()
+    if self:is_bot() == true then
+        return
+    end
+
     if self.type == "zombie" then
         self.money = self.money + 50
         self:AnimateMoneyHUDKill(50)
