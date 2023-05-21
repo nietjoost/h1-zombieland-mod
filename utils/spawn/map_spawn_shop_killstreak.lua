@@ -48,17 +48,17 @@ function SetShaderLocationKillStreak()
         return
     end
 
-    if iconhud ~= nil then
-        iconhud:destroy()
+    if iconhud2 ~= nil then
+        iconhud2:destroy()
     end
 
-    local iconhud = game:newhudelem()
-    iconhud:setshader("compass_objpoint_airstrike", 10, 10)
-    iconhud.x = killstreak_refreshPosition.x
-    iconhud.y = killstreak_refreshPosition.y
-    iconhud.z = killstreak_refreshPosition.z + 40
-    iconhud.hidewhendead = true
-    iconhud.hidewheninmenu = true
-    iconhud:setwaypoint(false, true)
-    iconhud.alpha = 1
+    local iconhud2 = game:newhudelem()
+    iconhud2:setshader("compass_objpoint_airstrike", 10, 10)
+    iconhud2.x = killstreak_refreshPosition.x
+    iconhud2.y = killstreak_refreshPosition.y
+    iconhud2.z = killstreak_refreshPosition.z + 40
+    iconhud2.hidewhendead = true
+    iconhud2.hidewheninmenu = true
+    iconhud2:setwaypoint(false, true)
+    iconhud2.alpha = 1
 end
