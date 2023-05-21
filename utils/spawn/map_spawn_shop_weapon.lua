@@ -17,7 +17,7 @@ function SpawnShopWeapon(position, angle)
     bomb.angles = bomb.angles + vector:new(0, 90, 0) + angle
     bomb:show()
     bomb:makeusable()
-    bomb:sethintstring("Press ^3[{+activate}]^7 to buy your next weapon upgrade Support ^7[COST: ^2" .. weapon_cost .. "^7]")
+    bomb:sethintstring("Press ^3[{+activate}]^7 to buy your next weapon upgrade ^7[COST: ^2" .. weapon_cost .. "^7]")
 
     -- Wait for players trigger
     bomb:onnotify("trigger", function(player)
