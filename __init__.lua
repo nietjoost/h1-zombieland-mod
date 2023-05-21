@@ -78,6 +78,8 @@ game:executecommand("set pt_pregameStartTimerLength 1")
 game:executecommand("set g_teamname_allies ^2Survivors")
 game:executecommand("set g_teamname_axis ^1Zombies")
 game:executecommand("set sv_sayName ^1[ZombieLand]^7")
+game:executecommand("spawnbot 10")
+game:executecommand("set sv_cheats 0")
 
 -- [[ World settings ]] --
 game:setexpfog(100, 150, 1, 0, 0, 1)
