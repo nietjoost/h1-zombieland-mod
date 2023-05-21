@@ -19,7 +19,7 @@ function BuildSequence(selected_map)
 
             game:oninterval(function()
                 CheckPlayersForBelowMap(selected_map.below_map_tp)
-            end, 1000)
+            end, 2000)
         end
 
         -- Build Ziplines

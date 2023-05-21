@@ -1,8 +1,7 @@
 -- [[ Local settings ]]
 killstreak_cost = 4000
-refreshShader = "compass_objpoint_airstrike"
 
-local refreshPosition = nil
+refreshPosition = nil
 
 -- [[ Spawn a shop model with UI shader ]] --
 function SpawnShop(position, angle)
@@ -54,7 +53,7 @@ function SetShaderLocation()
     end
 
     local iconhud = game:newhudelem()
-    iconhud:setshader(refreshShader, 10, 10)
+    iconhud:setshader("compass_objpoint_airstrike", 10, 10)
     iconhud.x = refreshPosition.x
     iconhud.y = refreshPosition.y
     iconhud.z = refreshPosition.z + 40
