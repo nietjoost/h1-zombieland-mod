@@ -1,12 +1,12 @@
 -- [[ Local settings ]]
 killstreak_cost = 4000
 
-refreshPosition = nil
+killstreak_refreshPosition = nil
 
--- [[ Spawn a shop model with UI shader ]] --
+-- [[ Spawn a killstreak shop model with UI shader ]] --
 function SpawnShopKillStreak(position, angle)
     -- Set data
-    refreshPosition = position
+    killstreak_refreshPosition = position
 
     -- Set icon location
     SetShaderLocationKillStreak()
@@ -37,14 +37,14 @@ function SpawnShopKillStreak(position, angle)
             player:PlayerMessage("^2You bought an airstrike!");
             player:UpdateMoneyHUDBuy(killstreak_cost)
         else
-            player:iprintlnbold("^9You don't have enough money!");
+            player:iprintlnbold("^1You don't have enough money!");
         end
     end)
 end
 
 -- [[ Set UI shader ]] --
 function SetShaderLocationKillStreak()
-    if refreshPosition == nil then
+    if killstreak_refreshPosition == nil then
         return
     end
 
@@ -54,9 +54,9 @@ function SetShaderLocationKillStreak()
 
     local iconhud = game:newhudelem()
     iconhud:setshader("compass_objpoint_airstrike", 10, 10)
-    iconhud.x = refreshPosition.x
-    iconhud.y = refreshPosition.y
-    iconhud.z = refreshPosition.z + 40
+    iconhud.x = killstreak_refreshPosition.x
+    iconhud.y = killstreak_refreshPosition.y
+    iconhud.z = killstreak_refreshPosition.z + 40
     iconhud.hidewhendead = true
     iconhud.hidewheninmenu = true
     iconhud:setwaypoint(false, true)

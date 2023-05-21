@@ -11,6 +11,7 @@ function PlayerConnectedOnce(player)
     player.use_of_zipline = 0
     player.spawned = 0
     player.money = 0
+    player.weapon_upgrade = 1
 
     -- MENU
     HandleMenu(player)

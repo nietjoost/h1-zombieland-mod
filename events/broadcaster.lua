@@ -1,7 +1,7 @@
 -- [[ Broadcaster settings ]] --
 broadcast_messages = {
     "Created by RooieRonnie!",
-    "Press 7 (default) to open the menu shop!",
+    --"Press 7 (default) to open the menu shop!",
     "Be alive when the timer ends as a survivor to win the game!",
     "Kill all survivors as a zombie before the timer to win the game!",
     "This ZombieLand version is still in BETA!"
