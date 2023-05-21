@@ -34,6 +34,7 @@ function SpawnShopWeapon(position, angle)
             end
 
             player:giveweapon(upgrade_weapons[player.weapon_upgrade])
+            player:givemaxammo(upgrade_weapons[player.weapon_upgrade])
             player:switchtoweapon(upgrade_weapons[player.weapon_upgrade])
             player:UpdateMoneyHUDBuy(weapon_cost)
             player.weapon_upgrade = player.weapon_upgrade + 1
