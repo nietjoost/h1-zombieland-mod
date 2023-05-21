@@ -37,6 +37,7 @@ function PreBuildMap()
 
     -- Spawn shop
     SpawnShopKillStreak(vector:new(-2595, 6734, 714), vector:new(0, 180, 0))
+    SpawnShopWeapon(vector:new(229, -61, 129), vector:new(0, 0, 0))
 end
 
 -- [[ Build map: called later for lag purpose ]] --

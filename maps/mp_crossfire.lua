@@ -43,6 +43,7 @@ function PreBuildMap()
 
     -- Spawn shop
     SpawnShopKillStreak(vector:new(10078, -2705, 640), vector:new(0, 90, 0))
+    SpawnShopWeapon(vector:new(4328, -3694, -140), vector:new(0, 0, 0))
 
     -- Hint string
     SpawnHintString(vector:new(5854, -614, 245), "^1Dont fall of the wall!")

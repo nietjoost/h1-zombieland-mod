@@ -41,6 +41,7 @@ function BuildMap()
 
     -- Spawn shop
     SpawnShopKillStreak(vector:new(-4380, -222, 1400), vector:new(0, -90, 0))
+    SpawnShopWeapon(vector:new(0, -107, 0), vector:new(0, 0, 0))
 
     return true
 end

@@ -33,6 +33,13 @@ map.posTP = {
 
 map.below_map_tp = vector:new(-830, 551, -63)
 
+-- [[ BUILD instant ]] --
+function PreBuildMap()
+    -- Spawn shop
+    SpawnShopKillStreak(vector:new(1285, -1577, 153), vector:new(0, 0, 0))
+    SpawnShopWeapon(vector:new(16, 256, 0), vector:new(0, 0, 0))
+end
+
 -- [[ Build map: called later for lag purpose ]] --
 function BuildMap()
     SpawnFlag(map.posFlag[1])
