@@ -36,13 +36,13 @@ function entity:SpawnClaymore()
     end, 50)
 
     -- Add delete Tactical Insersion function
-    local tactical = game:spawn("script_model",  self.origin)
+    tactical = game:spawn("script_model",  self.origin)
     tactical:setmodel("h1_dogtag_friend_animated")
     tactical:show()
     tactical:makeusable()
     tactical:sethintstring("Press ^3[{+activate}]^7 to ^1destroy ^7the tactical insertion")
     self.tactical = tactical
-
+    
     -- Wait for players trigger
     tactical:onnotify("trigger", function(self)
         if self.type == "zombie" then
@@ -50,7 +50,7 @@ function entity:SpawnClaymore()
             return
         end
 
-        self.tactical:delete()
+        tactical:delete()
         self:playlocalsound("bullet_large_ice")
     end)
 

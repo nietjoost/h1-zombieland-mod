@@ -28,6 +28,10 @@ function PreBuildMap()
     AddZipLine(vector:new(1008, -1608, 832), vector:new(2335, -814, 445))
     AddZipLine(vector:new(2410, 324, 449), vector:new(186, 798, 374))
     AddZipLine(vector:new(2410, 2031, 279), vector:new(-789, 861, 11))
+
+    -- Spawn shop
+    SpawnShopKillStreak(vector:new(-4380, -222, 1400), vector:new(0, -90, 0))
+    SpawnShopWeapon(vector:new(0, -107, 0), vector:new(0, 0, 0))
 end
 
 -- [[ Build map: called later for lag purpose ]] --
@@ -38,10 +42,6 @@ function BuildMap()
     AddBooster(vector:new(2413, -694, 280), 10)
     AddBooster(vector:new(2410, 216, 280), 10)
     AddBooster(vector:new(2409, 1093, 280), 10)
-
-    -- Spawn shop
-    SpawnShopKillStreak(vector:new(-4380, -222, 1400), vector:new(0, -90, 0))
-    SpawnShopWeapon(vector:new(0, -107, 0), vector:new(0, 0, 0))
 
     return true
 end
