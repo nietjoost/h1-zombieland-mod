@@ -34,7 +34,7 @@ function PreBuildMap()
     AddBooster(vector:new(-382, 1984, -23), 30)
 
     -- Spawn shop
-    --SpawnShop(vector:new(-2500, 995, 104), vector:new(0, 0, 0))
+    --SpawnShopKillStreak(vector:new(-2500, 995, 104), vector:new(0, 0, 0))
 end
 
 -- [[ Build map: called later for lag purpose ]] --

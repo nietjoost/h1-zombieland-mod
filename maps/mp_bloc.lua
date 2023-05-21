@@ -44,7 +44,7 @@ function PreBuildMap()
     SpawnRamp(vector:new(2440, -5794, 1272), vector:new(2436, -5943, 1377))
 
     -- Shop
-    SpawnShop(vector:new(2376.87109375, -5685.9477539062, 1296.1248779297), vector:new(0, -90, 0))
+    SpawnShopKillStreak(vector:new(2376.87109375, -5685.9477539062, 1296.1248779297), vector:new(0, -90, 0))
 
     -- Hint string
     SpawnHintString(vector:new(2380, -6009, 1406), "^6Heyy look!! ^5There is a bounce down there!")

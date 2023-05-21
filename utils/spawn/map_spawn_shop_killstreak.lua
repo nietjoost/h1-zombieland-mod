@@ -4,12 +4,12 @@ killstreak_cost = 4000
 refreshPosition = nil
 
 -- [[ Spawn a shop model with UI shader ]] --
-function SpawnShop(position, angle)
+function SpawnShopKillStreak(position, angle)
     -- Set data
     refreshPosition = position
 
     -- Set icon location
-    SetShaderLocation()
+    SetShaderLocationKillStreak()
 
     -- Set shop location
     local box = game:spawn("script_model", position)
@@ -43,7 +43,7 @@ function SpawnShop(position, angle)
 end
 
 -- [[ Set UI shader ]] --
-function SetShaderLocation()
+function SetShaderLocationKillStreak()
     if refreshPosition == nil then
         return
     end
