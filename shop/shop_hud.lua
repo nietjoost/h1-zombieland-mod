@@ -1,5 +1,3 @@
-require("overflow")
-
 function drawtext(player, type, font, fontscale, x, y, alignx, aligny, horzalign, vertalign, color, alpha, text)
     local elem = game:newclienthudelem(player)
     elem.elemType = type
