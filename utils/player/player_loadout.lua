@@ -1,7 +1,7 @@
 -- [[ ZOMBIE LOADOUTS ]] --
 function entity:GiveZombieClass()
     self:clearperks()
-    self:takeallweapons();
+    self:takeallweapons()
     self:giveweapon("h1_meleejun4_mp_a#none_f#base")
 
     game:ontimeout(function()
@@ -14,7 +14,7 @@ end
 
 function entity:GiveZombieClassClaymore()
     self:clearperks()
-    self:takeallweapons();
+    self:takeallweapons()
     self:giveweapon("h1_meleejun4_mp_a#none_f#base")
 
     game:ontimeout(function()

@@ -50,7 +50,7 @@ function entity:SpawnClaymore()
             return
         end
 
-        tactical:delete()
+        self.tactical:delete()
         self:playlocalsound("bullet_large_ice")
     end)
 

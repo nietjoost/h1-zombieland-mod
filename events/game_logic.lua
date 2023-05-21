@@ -87,7 +87,7 @@ end
 -- [[ Game winning TIME LIMIT check ]] --
 function TimeLimitCheck()
    game:ontimeout(function()
-      if (config.started == true and config.enough_people == true) then
+      if config.started == true and config.enough_people == true then
          AllPlayerMessage("The survivors have won!", vector:new(0, 1, 0))
 
       elseif config.started == false then
@@ -97,7 +97,7 @@ function TimeLimitCheck()
       game:ontimeout(function()
          level:scriptcall("maps/mp/gametypes/_gamelogic", "forceend")
          ChangeMap()
-      end, 200)
+      end, 300)
 
    end, gameTime * ms(60) - 1)
 end
